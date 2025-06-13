@@ -5,7 +5,7 @@ import passwordIcon from '../../../assets/images/password.png';
 import userIcon from '../../../assets/images/person.png'; // Add this icon
 import logo from "../../../assets/images/eduflex.png";
 import { Link } from "react-router-dom";
-import api from '../../../api/axios';
+import api from '../../../services/api';
 import { useNavigate } from 'react-router-dom';
 
 function Register() {
@@ -35,16 +35,17 @@ function Register() {
         }
 
         try {
-            const response = await api.post('/auth/register', {
-                name: formData.name,
-                email: formData.email,
-                password: formData.password
-            });
+            await api.post(
+                '/auth/register',
+                {
+                    name: formData.name,
+                    email: formData.email,
+                    password: formData.password,
+                },
+                { withCredentials: true } // ✅ keep this
+            );
 
-            // Optional: Auto-login after registration
-            localStorage.setItem('token', response.data.token);
             navigate('/');
-
         } catch (err) {
             setError(err.response?.data?.message || 'Registration failed');
         }

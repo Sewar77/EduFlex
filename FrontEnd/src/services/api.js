@@ -6,26 +6,21 @@ const api = axios.create({
   headers: {
     "Content-Type": "application/json",
   },
+  withCredentials: true, // This enables cookie handling
 });
 
-// Request interceptor (e.g., for adding auth tokens)
+// Remove the localStorage token interceptor since we're using cookies
 api.interceptors.request.use(
-  (config) => {
-    const token = localStorage.getItem("token");
-    if (token) {
-      config.headers.Authorization = `Bearer ${token}`;
-    }
-    return config;
-  },
+  (config) => config,
   (error) => Promise.reject(error)
 );
 
-// Response interceptor (e.g., for handling 401 errors)
+// Enhanced response interceptor
 api.interceptors.response.use(
   (response) => response,
-  (error) => {
+  async (error) => {
     if (error.response?.status === 401) {
-      // Redirect to login if unauthorized
+      // Optionally attempt token refresh here before redirecting
       window.location.href = "/login";
     }
     return Promise.reject(error);
