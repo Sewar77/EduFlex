@@ -1,8 +1,11 @@
 import React from 'react';
+
 import styles from './Dashboard.module.css';
 import Header from '../../components/layout/header';
 import Footer from '../../components/layout/footer';
 import TextRotator from '../../components/ui/TextRotator/TextRotator';
+import EnrolledCourses from '../../components/ui/enrollments/EnrolledCourse';
+
 function Dashboard() {
     return (
         <>
@@ -13,6 +16,7 @@ function Dashboard() {
                     <h1>Welcome, Student 🎓</h1>
                     <p>Here’s your learning space.</p>
                 </header>
+
                 <div className={styles.content}>
                     <div className={styles.card}>
                         <h2>📚 Enrolled Courses</h2>
@@ -27,6 +31,8 @@ function Dashboard() {
                         <p>No new alerts</p>
                     </div>
                 </div>
+
+                {/* <EnrolledCourses /> */}
             </div>
             <Footer />
         </>

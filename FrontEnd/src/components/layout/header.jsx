@@ -17,10 +17,12 @@ function Header() {
                     />
                 </div>
                 <div className={style.leftHeader}>
-                    <Link to="/main">Home</Link>
+                    <Link to="/">Home</Link>
                     <Link to="/my-courses">My Courses</Link>
+                    <Link to="/courses">Explore new Courses</Link>
                     <Link to="/favorites">Favorites</Link>
                     <Link to="/notifications">Notifications</Link>
+                    <Link to="/logout">Logout</Link>
                     <img src={person} className={style.person} alt="Profile" />
                 </div>
             </nav>
