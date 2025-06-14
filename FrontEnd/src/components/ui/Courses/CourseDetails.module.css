@@ -1,0 +1,138 @@
+.loading,
+.error {
+  text-align: center;
+  font-size: 20px;
+  color: rgba(27, 108, 221, 0.995);
+  margin-top: 60px;
+}
+
+.banner {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+  align-items: center;
+  background-color: #f5faff;
+  border: 1px solid #cde2ff;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.07);
+  margin-bottom: 30px;
+}
+
+.thumbnail {
+  width: 240px;
+  height: 140px;
+  object-fit: cover;
+  border-radius: 8px;
+  border: 2px solid rgba(27, 108, 221, 0.8);
+}
+
+.meta h1 {
+  color: rgba(27, 108, 221, 0.995);
+  font-size: 28px;
+  margin-bottom: 10px;
+}
+
+.meta p {
+  margin: 5px 0;
+  font-weight: 500;
+  color: #333;
+}
+
+.description {
+  margin-bottom: 30px;
+}
+
+.description h2,
+.modules h2 {
+  color: rgba(27, 108, 221, 0.995);
+  margin-bottom: 10px;
+  font-size: 22px;
+}
+
+.modules ul {
+  padding-left: 20px;
+  list-style: disc;
+  color: #444;
+}
+
+.startButton {
+  padding: 12px 30px;
+  background-color: rgba(27, 108, 221, 0.995);
+  color: white;
+  border: none;
+  border-radius: 5px;
+  font-size: 16px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.startButton:hover {
+  background-color: #1a64c7;
+}
+
+.container {
+  max-width: 1000px;
+  margin: 40px auto;
+  padding: 20px;
+  font-family: "Segoe UI", sans-serif;
+}
+
+.status {
+  text-align: center;
+  font-size: 18px;
+  color: #1b6cdd;
+}
+
+.detailsCard {
+  display: flex;
+  flex-wrap: wrap;
+  background: white;
+  border: 1px solid #eee;
+  border-radius: 12px;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+  overflow: hidden;
+}
+
+.image {
+  width: 100%;
+  max-width: 400px;
+  height: auto;
+  object-fit: cover;
+  border-right: 2px solid #f0f0f0;
+}
+
+.info {
+  flex: 1;
+  padding: 20px;
+  color: #333;
+}
+
+.title {
+  font-size: 28px;
+  color: #1b6cdd;
+  margin-bottom: 10px;
+}
+
+.description {
+  margin: 10px 0 20px;
+  color: #444;
+}
+
+.enrollBtn {
+  background-color: #1b6cdd;
+  color: white;
+  padding: 12px 20px;
+  border-radius: 8px;
+  cursor: pointer;
+  border: 3px solid #155dbd;
+  font-weight: bold;
+  transition: background 0.3s ease;
+}
+
+.enrollBtn:hover {
+  background-color: white;
+  color: #1b6cdd;
+  border: 3px solid #155dbd;
+}

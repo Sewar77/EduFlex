@@ -90,3 +90,19 @@
   color: #27ae60;
   font-weight: 500;
 }
+
+.continueButton {
+  margin-top: 10px;
+  padding: 6px 12px;
+  background-color: #2563eb; /* blue */
+  color: white;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  font-weight: 600;
+  transition: background-color 0.2s ease-in-out;
+}
+
+.continueButton:hover {
+  background-color: #1d4ed8; /* darker blue */
+}
