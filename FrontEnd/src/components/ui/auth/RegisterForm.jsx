@@ -1,12 +1,11 @@
 import React, { useState } from 'react';
-import styles from './Register.module.css'; // We'll create this
+import styles from './Register.module.css';
 import emailIcon from '../../../assets/images/email.png';
 import passwordIcon from '../../../assets/images/password.png';
-import userIcon from '../../../assets/images/person.png'; // Add this icon
+import userIcon from '../../../assets/images/person.png';
 import logo from "../../../assets/images/eduflex.png";
-import { Link } from "react-router-dom";
-import api from '../../../services/api';
-import { useNavigate } from 'react-router-dom';
+import { Link, useNavigate } from "react-router-dom";
+import { useAuth } from '../../../hooks/Auth/userAuth';
 
 function Register() {
     const [formData, setFormData] = useState({
@@ -16,7 +15,9 @@ function Register() {
         confirmPassword: ''
     });
     const [error, setError] = useState('');
+    const [isLoading, setIsLoading] = useState(false);
     const navigate = useNavigate();
+    const { register } = useAuth();
 
     const handleChange = (e) => {
         const { name, value } = e.target;
@@ -29,25 +30,35 @@ function Register() {
     const handleSubmit = async (e) => {
         e.preventDefault();
 
+        if (!formData.name || !formData.email || !formData.password || !formData.confirmPassword) {
+            setError("Please fill in all fields");
+            return;
+        }
+
         if (formData.password !== formData.confirmPassword) {
             setError("Passwords don't match");
             return;
         }
 
-        try {
-            await api.post(
-                '/auth/register',
-                {
-                    name: formData.name,
-                    email: formData.email,
-                    password: formData.password,
-                },
-                { withCredentials: true } // ✅ keep this
-            );
+        if (formData.password.length < 6) {
+            setError("Password must be at least 6 characters");
+            return;
+        }
 
-            navigate('/');
+        setIsLoading(true);
+        setError('');
+
+        try {
+            await register({
+                name: formData.name,
+                email: formData.email,
+                password: formData.password
+            });
+            navigate('/student/Dashboard');
         } catch (err) {
-            setError(err.response?.data?.message || 'Registration failed');
+            setError(err.message || 'Registration failed');
+        } finally {
+            setIsLoading(false);
         }
     };
 
@@ -71,6 +82,7 @@ function Register() {
                             placeholder="Full Name"
                             className={styles.inputField}
                             required
+                            disabled={isLoading}
                         />
                     </div>
 
@@ -84,6 +96,7 @@ function Register() {
                             placeholder="Email Address"
                             className={styles.inputField}
                             required
+                            disabled={isLoading}
                         />
                     </div>
 
@@ -98,6 +111,7 @@ function Register() {
                             className={styles.inputField}
                             required
                             minLength="6"
+                            disabled={isLoading}
                         />
                     </div>
 
@@ -111,13 +125,18 @@ function Register() {
                             placeholder="Confirm Password"
                             className={styles.inputField}
                             required
+                            disabled={isLoading}
                         />
                     </div>
 
                     {error && <div className={styles.error}>{error}</div>}
 
-                    <button type="submit" className={styles.registerButton}>
-                        Sign Up
+                    <button
+                        type="submit"
+                        className={styles.registerButton}
+                        disabled={isLoading}
+                    >
+                        {isLoading ? 'Creating account...' : 'Sign Up'}
                     </button>
 
                     <div className={styles.socialLogin}>

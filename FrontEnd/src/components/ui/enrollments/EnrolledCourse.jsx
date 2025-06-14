@@ -10,15 +10,9 @@ function EnrolledCourses() {
     const navigate = useNavigate();
 
     useEffect(() => {
-        const isLoggedIn = document.cookie.includes("accessToken"); // or your real cookie name
-        if (!isLoggedIn) {
-            navigate('/login');
-            return;
-        }
-
         const fetchEnrolledCourses = async () => {
             try {
-                const response = await api.get("/api/enrollments/my-courses", {
+                const response = await api.get("/enrollments/my-courses", {
                     withCredentials: true,
                 });
                 const rawData = response?.data?.result;
@@ -27,13 +21,13 @@ function EnrolledCourses() {
 
                 const validatedData = rawData.map(item => ({
                     course: {
-                        _id: item.course.id,
+                        _id: item.course._id || item.course.id,
                         title: item.course.title,
-                        thumbnail: item.course.thumbnail_url || "/default-course.jpg",
-                        instructor: { name: item.course.instructor_name }
+                        thumbnail: item.course.thumbnail || "/default-course.jpg",
+                        instructor: item.course.instructor?.name || item.course.instructor_name || "Unknown Instructor"
                     },
-                    enrollmentDate: item.enrollment_date,
-                    progress: item.progress,
+                    enrollmentDate: item.enrollmentDate || item.enrollment_date,
+                    progress: item.progress || 0,
                 }));
 
                 setEnrollments(validatedData);
@@ -52,8 +46,6 @@ function EnrolledCourses() {
 
         fetchEnrolledCourses();
     }, [navigate]);
-    
-    
 
     const handleCourseClick = (courseId) => {
         navigate(`/courses/${courseId}`);
@@ -81,20 +73,9 @@ function EnrolledCourses() {
                             className={styles.courseCard}
                             onClick={() => handleCourseClick(enrollment.course._id)}
                         >
-                            {/* <div className={styles.courseImage}>
-                                <img
-                                    src={enrollment.course.thumbnail}
-                                    alt={enrollment.course.title}
-                                    onError={(e) => {
-                                        e.target.src = '/default-course.jpg';
-                                        e.target.onerror = null;
-                                    }}
-                                    loading="lazy"
-                                />
-                            </div> */}
                             <div className={styles.courseInfo}>
                                 <h3>{enrollment.course.title}</h3>
-                                <p>{enrollment.course.instructor?.name || "Unknown Instructor"}</p>
+                                <p>{enrollment.course.instructor}</p>
                                 <div className={styles.progressBar}>
                                     <div
                                         style={{ width: `${enrollment.progress}%` }}
