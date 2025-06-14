@@ -1,7 +1,8 @@
-import { useContext } from "react";
-import { AuthContext } from "../../context/AuthContext.js";
-import api from "../../services/api.js";
+import { useContext, useState } from "react";
+import { AuthContext } from "../../context/AuthContext";
+import api from "../../services/api";
 import { useNavigate } from "react-router-dom";
+
 
 export const useAuth = () => {
   const { user, setUser } = useContext(AuthContext);
@@ -9,30 +10,16 @@ export const useAuth = () => {
 
   const login = async (credentials) => {
     try {
-      // 1. Attempt login
-      const loginResponse = await api.post("/auth/login", credentials);
+      const { data } = await api.post("/auth/login", credentials);
+      if (!data?.success) throw new Error(data?.message || "Login failed");
 
-      if (!loginResponse.data?.success) {
-        throw new Error(loginResponse.data?.message || "Login failed");
-      }
+      const userData = await api.get("/auth/me");
+      if (!userData.data?.user) throw new Error("Failed to fetch user data");
 
-      // 2. Get user data (cookies are automatically set)
-      const userResponse = await api.get("/auth/me");
-
-      if (!userResponse.data?.user) {
-        throw new Error("Failed to fetch user data");
-      }
-
-      // 3. Update context and return user
-      setUser(userResponse.data.user);
-      return userResponse.data.user;
+      setUser(userData.data.user);
+      return userData.data.user;
     } catch (error) {
-      console.error("Login error:", error);
-
-      // Clear any partial auth state
       setUser(null);
-
-      // Re-throw with user-friendly message
       throw new Error(
         error.response?.data?.message ||
           error.message ||
@@ -43,37 +30,24 @@ export const useAuth = () => {
 
   const register = async (userData) => {
     try {
-      // 1. Attempt registration
-      const registerResponse = await api.post("/auth/register", userData);
+      const { data } = await api.post("/auth/register", userData);
+      if (!data?.success)
+        throw new Error(data?.message || "Registration failed");
 
-      if (!registerResponse.data?.success) {
-        throw new Error(
-          registerResponse.data?.message || "Registration failed"
-        );
-      }
+      const loginData = await api.post("/auth/login", {
+        email: userData.email,
+        password: userData.password,
+      });
+      if (!loginData.data?.success) throw new Error("Auto-login failed");
 
-      // 2. Auto-login after registration
-    //   const loginResponse = await api.post("/auth/login", {
-    //     email: userData.email,
-    //     password: userData.password,
-    //   });
-
-      // 3. Get user data
       const userResponse = await api.get("/auth/me");
+      if (!userResponse.data?.user)
+        throw new Error("Failed to fetch user data");
 
-      if (!userResponse.data?.user) {
-        throw new Error("Failed to fetch user data after registration");
-      }
-
-      // 4. Update context and return user
       setUser(userResponse.data.user);
       return userResponse.data.user;
     } catch (error) {
-      console.error("Registration error:", error);
-
-      // Clear any partial auth state
       setUser(null);
-
       throw new Error(
         error.response?.data?.message ||
           error.message ||
@@ -84,39 +58,35 @@ export const useAuth = () => {
 
   const logout = async () => {
     try {
-      // 1. Attempt logout
       await api.post("/auth/logout");
-
-      // 2. Clear local state
-      setUser(null);
-
-      // 3. Redirect to login
-      navigate("/login");
-    } catch (error) {
-      console.error("Logout error:", error);
-
-      // Force clear state even if logout failed
       setUser(null);
       navigate("/login");
-
+    } catch {
+      setUser(null);
+      navigate("/login");
       throw new Error("Failed to logout properly");
     }
   };
 
-  // Check auth status on initial load
-  const checkAuth = async () => {
-    try {
-      const { data } = await api.get("/auth/me");
-      if (data?.user) {
-        setUser(data.user);
-        return data.user;
-      }
-    } catch (error) {
-        setUser(null);
-        throw error;
-    }
-    return null;
-  };
+ const [loading, setLoading] = useState(true);
+
+ const checkAuth = async () => {
+   try {
+     const { data } = await api.get("/auth/me");
+     if (data?.user) {
+       setUser(data.user);
+       return data.user;
+     }
+     setUser(null);
+     return null;
+   } catch {
+     setUser(null);
+     return null;
+   } finally {
+     setLoading(false);
+   }
+ };
+
 
   return {
     user,
@@ -124,5 +94,7 @@ export const useAuth = () => {
     register,
     logout,
     checkAuth,
+    isAuthenticated: !!user,
+    loading,
   };
 };
