@@ -1,7 +1,7 @@
 import React from "react";
 import style from "./header.module.css";
 import logo from "../../../src/assets/images/eduflex.png";
-import person from "../../../src/assets/images/person.png";
+// import person from "../../../src/assets/images/person.png";
 import { Link } from "react-router-dom";
 
 function Header() {
@@ -17,13 +17,17 @@ function Header() {
                     />
                 </div>
                 <div className={style.leftHeader}>
-                    <Link to="/">Home</Link>
+                    <Link to="/student/main">Home</Link>
                     <Link to="/my-courses">My Courses</Link>
                     <Link to="/courses">Explore new Courses</Link>
                     <Link to="/favorites">Favorites</Link>
                     <Link to="/notifications">Notifications</Link>
                     <Link to="/logout">Logout</Link>
-                    <img src={person} className={style.person} alt="Profile" />
+                    <img
+                        src="https://i.pravatar.cc/80?img=21"
+                        className={style.person}
+                        alt="Profile of student"
+                    />
                 </div>
             </nav>
         </header>

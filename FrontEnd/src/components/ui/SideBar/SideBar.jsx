@@ -1,6 +1,16 @@
 import React, { useState } from 'react';
 import { Link, useLocation } from 'react-router-dom';
-import { MdDashboard, MdLibraryBooks, MdPeople, MdSettings, MdExpandMore, MdExpandLess, MdExitToApp, MdMenu, MdClose } from 'react-icons/md';
+import {
+    MdDashboard,
+    MdLibraryBooks,
+    MdPeople,
+    MdSettings,
+    MdExpandMore,
+    MdExpandLess,
+    MdExitToApp,
+    MdMenu,
+    MdClose,
+} from 'react-icons/md';
 import { useAuth } from '../../../hooks/Auth/userAuth';
 import styles from './Sidebar.module.css';
 
@@ -34,15 +44,24 @@ const Sidebar = () => {
 
     return (
         <>
-            <button className={styles.mobileToggle} onClick={() => setIsOpen(!isOpen)}>
+            <button
+                className={styles.mobileToggle}
+                onClick={() => setIsOpen(!isOpen)}
+                aria-label={isOpen ? 'Close sidebar' : 'Open sidebar'}
+            >
                 {isOpen ? <MdClose /> : <MdMenu />}
             </button>
 
-            <aside className={`${styles.sidebar} ${isOpen ? styles.open : ''}`}>
+            <aside
+                className={`${styles.sidebar} ${isOpen ? styles.open : ''}`}
+                aria-label="Sidebar navigation"
+            >
                 <div className={styles.profile}>
-                    <div className={styles.avatar}>{user?.name?.charAt(0).toUpperCase() || 'U'}</div>
+                    <div className={styles.avatar} aria-hidden="true">
+                        {user?.name?.charAt(0).toUpperCase() || 'U'}
+                    </div>
                     <div>
-                        <h3>{user?.name || 'User'}</h3>
+                        <h3 tabIndex={0}>{user?.name || 'User'}</h3>
                         <p>{user?.role || 'Student'}</p>
                     </div>
                 </div>
@@ -54,8 +73,19 @@ const Sidebar = () => {
                                 <div
                                     className={`${styles.menuItem} ${isActive(path) ? styles.active : ''}`}
                                     onClick={() => (subItems ? toggleSubmenu(title) : setIsOpen(false))}
+                                    role={subItems ? 'button' : undefined}
+                                    tabIndex={0}
+                                    onKeyDown={(e) => {
+                                        if (e.key === 'Enter' || e.key === ' ') {
+                                            subItems ? toggleSubmenu(title) : setIsOpen(false);
+                                        }
+                                    }}
                                 >
-                                    <Link to={path} className={styles.link} onClick={() => !subItems && setIsOpen(false)}>
+                                    <Link
+                                        to={path}
+                                        className={styles.link}
+                                        onClick={() => !subItems && setIsOpen(false)}
+                                    >
                                         <span className={styles.icon}>{icon}</span>
                                         <span>{title}</span>
                                     </Link>
@@ -63,7 +93,7 @@ const Sidebar = () => {
                                         <button
                                             onClick={() => toggleSubmenu(title)}
                                             className={styles.expandBtn}
-                                            aria-label="Toggle submenu"
+                                            aria-label={`${openSubmenu === title ? 'Collapse' : 'Expand'} submenu for ${title}`}
                                         >
                                             {openSubmenu === title ? <MdExpandLess /> : <MdExpandMore />}
                                         </button>
@@ -90,7 +120,14 @@ const Sidebar = () => {
                     </ul>
                 </nav>
 
-                <button className={styles.logout} onClick={() => { logout(); setIsOpen(false); }}>
+                <button
+                    className={styles.logout}
+                    onClick={() => {
+                        logout();
+                        setIsOpen(false);
+                    }}
+                    aria-label="Logout"
+                >
                     <MdExitToApp />
                     <span>Logout</span>
                 </button>

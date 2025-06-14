@@ -48,7 +48,7 @@ function EnrolledCourses() {
     }, [navigate]);
 
     const handleCourseClick = (courseId) => {
-        navigate(`/courses/${courseId}`);
+        navigate(`/courses/${courseId}/modules`);
     };
 
     if (loading) return <div className={styles.loading}>Loading...</div>;
@@ -67,24 +67,39 @@ function EnrolledCourses() {
                 </div>
             ) : (
                 <div className={styles.coursesGrid}>
-                    {enrollments.map((enrollment) => (
-                        <div
-                            key={enrollment.course._id}
-                            className={styles.courseCard}
-                            onClick={() => handleCourseClick(enrollment.course._id)}
-                        >
-                            <div className={styles.courseInfo}>
-                                <h3>{enrollment.course.title}</h3>
-                                <p>{enrollment.course.instructor}</p>
-                                <div className={styles.progressBar}>
-                                    <div
-                                        style={{ width: `${enrollment.progress}%` }}
-                                        aria-label={`${enrollment.progress}% complete`}
-                                    />
+                        {enrollments.map((enrollment) => (
+                            <div
+                                key={enrollment.course._id}
+                                className={styles.courseCard}
+                                onClick={() => handleCourseClick(enrollment.course._id)}
+                                role="button"
+                                tabIndex={0}
+                                onKeyPress={(e) => { if (e.key === 'Enter') handleCourseClick(enrollment.course._id); }}
+                            >
+                                <div className={styles.courseInfo}>
+                                    <h3>{enrollment.course.title}</h3>
+                                    <p>{enrollment.course.instructor}</p>
+                                    <div className={styles.progressBar}>
+                                        Progress: {enrollment.progress}%
+                                        <div
+                                            style={{ width: `${enrollment.progress}%` }}
+                                            aria-label={`${enrollment.progress}% complete`}
+                                        />
+                                    </div>
+                                    {/* Continue Button */}
+                                    <button
+                                        className={styles.continueButton}
+                                        onClick={(e) => {
+                                            e.stopPropagation(); // Prevent triggering the card's onClick
+                                            handleCourseClick(enrollment.course._id);
+                                        }}
+                                    >
+                                        Continue
+                                    </button>
                                 </div>
                             </div>
-                        </div>
-                    ))}
+                        ))}
+
                 </div>
             )}
         </div>
