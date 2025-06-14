@@ -5,12 +5,14 @@ import Header from '../../components/layout/header';
 import Footer from '../../components/layout/footer';
 import TextRotator from '../../components/ui/TextRotator/TextRotator';
 import EnrolledCourses from '../../components/ui/enrollments/EnrolledCourse';
-
+import Sidebar from '../../components/ui/SideBar/SideBar';
 function Dashboard() {
     return (
         <>
             <Header />
+            <Sidebar />
             <TextRotator />
+
             <div className={styles.dashboard}>
                 <header className={styles.header}>
                     <h1>Welcome, Student 🎓</h1>
@@ -32,7 +34,7 @@ function Dashboard() {
                     </div>
                 </div>
 
-                {/* <EnrolledCourses /> */}
+                <EnrolledCourses />
             </div>
             <Footer />
         </>

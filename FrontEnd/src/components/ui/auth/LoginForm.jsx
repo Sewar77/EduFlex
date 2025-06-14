@@ -1,12 +1,10 @@
-import React from 'react';
+import React, { useState } from 'react';
 import styles from './Login.module.css';
 import emailIcon from '../../../assets/images/email.png';
 import passwordIcon from '../../../assets/images/password.png';
 import logo from "../../../assets/images/eduflex.png";
-import { Link } from "react-router-dom";
-import { useState } from 'react';
-import api from '../../../services/api';
-import { useNavigate } from 'react-router-dom';
+import { Link, useNavigate } from "react-router-dom";
+import { useAuth } from '../../../hooks/Auth/userAuth';
 
 function Login() {
     const [email, setEmail] = useState('');
@@ -14,25 +12,28 @@ function Login() {
     const [error, setError] = useState('');
     const [isLoading, setIsLoading] = useState(false);
     const navigate = useNavigate();
+    const { login } = useAuth();
 
     const handleLogin = async (e) => {
         e.preventDefault();
+        if (!email || !password) {
+            setError('Please fill in all fields');
+            return;
+        }
         setIsLoading(true);
         setError('');
-        try {
-            await api.post(
-                '/auth/login',
-                { email, password },
-                { withCredentials: true } // ✅ this is perfect
-            );
 
+        try {
+            await login({ email, password });
+            console.log("Dashboard loaded");
+            console.log("loged in ", { email, password });
             navigate('/student/Dashboard');
+            console.log("loged in 2  ", { email, password });
         } catch (err) {
-            setError(err.response?.data?.message || 'Login failed. Please check your credentials.');
+            setError(err.message || 'Login failed. Please check your credentials.');
         } finally {
             setIsLoading(false);
         }
-
     };
 
     return (
@@ -70,6 +71,7 @@ function Login() {
                             className={styles.inputField}
                             required
                             disabled={isLoading}
+                            minLength="6"
                         />
                     </div>
 
