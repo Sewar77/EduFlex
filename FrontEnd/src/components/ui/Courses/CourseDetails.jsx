@@ -4,6 +4,7 @@ import Header from "../../layout/Header";
 import Footer from "../../layout/Footer";
 import style from "./CourseDetails.module.css";
 import fallbackImage from "../../../assets/images/card1.jpg";
+import EnrollButton from "../enrollments/EnrollButton";
 
 function CourseDetails() {
     const { id } = useParams();
@@ -28,27 +29,7 @@ function CourseDetails() {
                 setLoading(false);
             });
     }, [id]);
-    const handleEnroll = async () => {
-        try {
-            const response = await fetch("/api/enrollments", {
-                method: "POST",
-                headers: {
-                    "Content-Type": "application/json",
-                },
-                body: JSON.stringify({ course_id: course.id }),
-            });
-
-            const result = await response.json();
-
-            if (!response.ok) {
-                throw new Error(result.message || "Enrollment failed");
-            }
-
-            alert("Successfully enrolled in this course!");
-        } catch (err) {
-            alert(`Enrollment error: ${err.message}`);
-        }
-    };
+   
 
     return (
         <>
@@ -71,9 +52,8 @@ function CourseDetails() {
                             <p><strong>Instructor:</strong> {course.instructor_name || "Unknown"}</p>
                             <p><strong>Category:</strong> {course.category_name || "Uncategorized"}</p>
                             <p><strong>Level:</strong> {course.level || "All levels"}</p>
-                            <button className={style.enrollBtn} onClick={handleEnroll}>
-                                Enroll Now
-                            </button>
+
+                                <EnrollButton courseId={course.id} />
                         </div>
                     </div>
                 )}

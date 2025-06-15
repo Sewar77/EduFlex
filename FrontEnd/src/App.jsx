@@ -13,6 +13,9 @@ import MyCourses from './pages/Student/MyCourses';
 import Categories from './pages/Categories/Categories';
 import ViewCoursesPage from './pages/Courses/ViewCourses.jsx';
 import CourseModulesPage from './pages/Modules/CourseModulesPage.jsx';
+import { DashboardDataProvider } from './context/DashboardDataContext.jsx';
+import RecommendedCourses from './pages/Courses/Recommended.jsx';
+import MyProfile from './pages/Student/MyProfile.jsx';
 
 function App() {
   return (
@@ -21,14 +24,23 @@ function App() {
         <BrowserRouter>
           <Routes>
             <Route path="/my-courses" element={<MyCourses />} />
-            <Route path="/courses" element={<ViewCoursesPage />} />
+            <Route path="/course" element={<ViewCoursesPage />} />
+            <Route path="/profile" element={<MyProfile />} />
+            <Route path="/course/recommended" element={<RecommendedCourses />} />
             <Route path="/login" element={<Login />} />
             <Route path="/register" element={<Register />} />
-            <Route path="/student/Dashboard" element={<Dashboard />} />
+            <Route
+              path="/student/Dashboard"
+              element={
+                <DashboardDataProvider>
+                  <Dashboard />
+                </DashboardDataProvider>
+              }
+            />
             <Route path="/student/main" element={<MainStudent />} />
             <Route path="/courses/:courseId/modules" element={<CourseModulesPage />} />
             <Route path="/" element={<Home />} />
-            <Route path="/courses/:id" element={<CourseDetails />} />
+            <Route path="/course/:id" element={<CourseDetails />} />
             <Route path="/categories/:id" element={<Categories />} />
             <Route path="*" element={<Navigate to="/" replace />} />
           </Routes>

@@ -9,7 +9,7 @@ function CourseCards() {
     const navigate = useNavigate();
 
     const handleEnroll = (courseId) => {
-        navigate(`/courses/${courseId}`);
+        navigate(`/course/${courseId}`);
     };
 
 
@@ -24,7 +24,7 @@ function CourseCards() {
                     <div className={style.card} key={course.id}>
                         <div
                             className={style.clickable}
-                            onClick={() => navigate(`/courses/${course.id}`)}
+                            onClick={() => navigate(`/course/${course.id}`)}
                         >
                             <img
                                 src={course.thumbnail_url || card}

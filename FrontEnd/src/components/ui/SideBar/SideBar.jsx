@@ -10,6 +10,7 @@ import {
     MdExitToApp,
     MdMenu,
     MdClose,
+    MdPerson,
 } from 'react-icons/md';
 import { useAuth } from '../../../hooks/Auth/userAuth';
 import styles from './Sidebar.module.css';
@@ -25,14 +26,15 @@ const Sidebar = () => {
         {
             title: 'My Courses',
             icon: <MdLibraryBooks />,
-            path: '/courses',
+            path: '/my-courses',
             subItems: [
-                { title: 'Enrolled', path: '/courses/enrolled' },
-                { title: 'Recommended', path: '/courses/recommended' },
+                { title: 'Enrolled', path: '/my-courses' },
+                { title: 'Recommended', path: '/course/recommended' },
                 { title: 'Completed', path: '/courses/completed' },
             ],
         },
         { title: 'Community', icon: <MdPeople />, path: '/community' },
+        { title: 'Profile', icon: <MdPerson />, path: '/profile' },
         { title: 'Settings', icon: <MdSettings />, path: '/settings' },
     ];
 
