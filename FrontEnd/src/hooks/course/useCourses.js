@@ -9,7 +9,9 @@ export function useCourses() {
   useEffect(() => {
     const fetchCourses = async () => {
       try {
-        const response = await fetch("http://localhost:5000/api/course");
+        const response = await fetch("http://localhost:5000/api/course", {
+          credentials: "include",
+        });
         if (!response.ok) {
           throw new Error(`HTTP error! status: ${response.status}`);
         }

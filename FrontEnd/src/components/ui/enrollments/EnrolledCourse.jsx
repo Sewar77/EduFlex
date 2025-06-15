@@ -1,7 +1,8 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useCallback } from 'react';
 import { useNavigate } from 'react-router-dom';
-import api from '../../../services/api';
-import styles from './styles/EnrollCourse.module.css';
+import styles from './EnrollCourse.module.css';
+import UnenrollButton from './UnEnrollButton';
+import ContinueCourseButton from './ContinueCourseButton';
 
 function EnrolledCourses() {
     const [enrollments, setEnrollments] = useState([]);
@@ -9,48 +10,52 @@ function EnrolledCourses() {
     const [error, setError] = useState(null);
     const navigate = useNavigate();
 
-    useEffect(() => {
-        const fetchEnrolledCourses = async () => {
-            try {
-                const response = await api.get("/enrollments/my-courses", {
-                    withCredentials: true,
-                });
-                const rawData = response?.data?.result;
-                console.log("Enrollments raw data:", rawData);
-                if (!Array.isArray(rawData)) throw new Error("Invalid API response structure");
+    // Fetch enrolled courses using useCallback to prevent re-creation
+    const fetchEnrolledCourses = useCallback(async () => {
+        try {
+            setLoading(true);
 
-                const validatedData = rawData.map(item => ({
-                    course: {
-                        _id: item.course._id || item.course.id,
-                        title: item.course.title,
-                        thumbnail: item.course.thumbnail || "/default-course.jpg",
-                        instructor: item.course.instructor?.name || item.course.instructor_name || "Unknown Instructor"
-                    },
-                    enrollmentDate: item.enrollmentDate || item.enrollment_date,
-                    progress: item.progress || 0,
-                }));
+            const response = await fetch("/api/enrollments/my-courses", {
+                credentials: 'include',
+            });
 
-                setEnrollments(validatedData);
+            if (!response.ok) throw new Error(`HTTP error! status: ${response.status}`);
 
-            } catch (err) {
-                console.error("Enrollment fetch failed:", err.message);
-                if (err.response?.status === 401) {
-                    navigate('/login');
-                } else {
-                    setError(err.message);
-                }
-            } finally {
-                setLoading(false);
+            const json = await response.json();
+            const rawData = json.result || json.data || json;
+
+            if (!Array.isArray(rawData)) throw new Error("Invalid API response structure");
+
+            const validatedData = rawData.map(item => ({
+                course: {
+                    _id: item.course._id || item.course.id,
+                    title: item.course.title,
+                    thumbnail: item.course.thumbnail || "/default-course.jpg",
+                    instructor: item.course.instructor?.name || item.course.instructor_name || "Unknown Instructor"
+                },
+                enrollmentDate: item.enrollmentDate || item.enrollment_date,
+                progress: item.progress || 0,
+            }));
+
+            setEnrollments(validatedData);
+        } catch (err) {
+            console.error("Enrollment fetch failed:", err.message);
+            if (err.response?.status === 401) {
+                navigate('/login');
+            } else {
+                setError(err.message);
             }
-        };
-
-        fetchEnrolledCourses();
+        } finally {
+            setLoading(false);
+        }
     }, [navigate]);
 
-    const handleCourseClick = (courseId) => {
-        navigate(`/courses/${courseId}/modules`);
-    };
+    // Initial fetch
+    useEffect(() => {
+        fetchEnrolledCourses();
+    }, [fetchEnrolledCourses]);
 
+    // UI Rendering
     if (loading) return <div className={styles.loading}>Loading...</div>;
     if (error) return <div className={styles.error}>{error}</div>;
 
@@ -61,45 +66,27 @@ function EnrolledCourses() {
             {enrollments.length === 0 ? (
                 <div className={styles.emptyState}>
                     <p>No enrolled courses found</p>
-                    <button onClick={() => navigate('/courses')}>
-                        Browse Courses
-                    </button>
+                    <button onClick={() => navigate('/courses')}>Browse Courses</button>
                 </div>
             ) : (
                 <div className={styles.coursesGrid}>
-                        {enrollments.map((enrollment) => (
-                            <div
-                                key={enrollment.course._id}
-                                className={styles.courseCard}
-                                onClick={() => handleCourseClick(enrollment.course._id)}
-                                role="button"
-                                tabIndex={0}
-                                onKeyPress={(e) => { if (e.key === 'Enter') handleCourseClick(enrollment.course._id); }}
-                            >
-                                <div className={styles.courseInfo}>
-                                    <h3>{enrollment.course.title}</h3>
-                                    <p>{enrollment.course.instructor}</p>
-                                    <div className={styles.progressBar}>
-                                        Progress: {enrollment.progress}%
-                                        <div
-                                            style={{ width: `${enrollment.progress}%` }}
-                                            aria-label={`${enrollment.progress}% complete`}
-                                        />
-                                    </div>
-                                    {/* Continue Button */}
-                                    <button
-                                        className={styles.continueButton}
-                                        onClick={(e) => {
-                                            e.stopPropagation(); // Prevent triggering the card's onClick
-                                            handleCourseClick(enrollment.course._id);
-                                        }}
-                                    >
-                                        Continue
-                                    </button>
+                    {enrollments.map((enrollment) => (
+                        <div key={enrollment.course._id} className={styles.courseCard}>
+                            <div className={styles.courseInfo}>
+                                <h3>{enrollment.course.title}</h3>
+                                <p>{enrollment.course.instructor}</p>
+                                <p>Progress: {enrollment.progress}%</p>
+
+                                <div className={styles.buttonGroup}>
+                                    <ContinueCourseButton courseId={enrollment.course._id} />
+                                    <UnenrollButton
+                                        courseId={enrollment.course._id}
+                                        onUnenrollSuccess={fetchEnrolledCourses}
+                                    />
                                 </div>
                             </div>
-                        ))}
-
+                        </div>
+                    ))}
                 </div>
             )}
         </div>
