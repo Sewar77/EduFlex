@@ -1,11 +1,9 @@
 import React, { useState } from 'react';
 import styles from './Register.module.css';
-import emailIcon from '../../../assets/images/email.png';
-import passwordIcon from '../../../assets/images/password.png';
-import userIcon from '../../../assets/images/person.png';
-import logo from "../../../assets/images/eduflex.png";
 import { Link, useNavigate } from "react-router-dom";
 import { useAuth } from '../../../hooks/Auth/userAuth';
+import { MdErrorOutline, MdPerson, MdEmail, MdLock } from "react-icons/md";
+import { FaGoogle } from "react-icons/fa";
 
 function Register() {
     const [formData, setFormData] = useState({
@@ -63,94 +61,105 @@ function Register() {
     };
 
     return (
-        <div className={styles.registerContainer}>
-            <div className={styles.glassCard}>
+        <div className={styles.container}>
+            <div className={styles.card}>
                 <div className={styles.header}>
-                    <img src={logo} alt="Company Logo" className={styles.logo} />
                     <h1 className={styles.title}>Create Account</h1>
-                    <p className={styles.subtitle}>Join us to get started</p>
+                    <p className={styles.subtitle}>Join our platform to get started</p>
                 </div>
+
+                {error && (
+                    <div className={styles.error}>
+                        <MdErrorOutline size={18} />
+                        <span>{error}</span>
+                    </div>
+                )}
 
                 <form className={styles.form} onSubmit={handleSubmit}>
                     <div className={styles.inputGroup}>
-                        <img src={userIcon} alt="User" className={styles.inputIcon} />
                         <input
                             type="text"
                             name="name"
                             value={formData.name}
                             onChange={handleChange}
                             placeholder="Full Name"
-                            className={styles.inputField}
+                            className={styles.input}
                             required
                             disabled={isLoading}
                         />
+                        <MdPerson className={styles.inputIcon} />
                     </div>
 
                     <div className={styles.inputGroup}>
-                        <img src={emailIcon} alt="Email" className={styles.inputIcon} />
                         <input
                             type="email"
                             name="email"
                             value={formData.email}
                             onChange={handleChange}
                             placeholder="Email Address"
-                            className={styles.inputField}
+                            className={styles.input}
                             required
                             disabled={isLoading}
                         />
+                        <MdEmail className={styles.inputIcon} />
                     </div>
 
                     <div className={styles.inputGroup}>
-                        <img src={passwordIcon} alt="Password" className={styles.inputIcon} />
                         <input
                             type="password"
                             name="password"
                             value={formData.password}
                             onChange={handleChange}
                             placeholder="Password"
-                            className={styles.inputField}
+                            className={styles.input}
                             required
                             minLength="6"
                             disabled={isLoading}
                         />
+                        <MdLock className={styles.inputIcon} />
                     </div>
 
                     <div className={styles.inputGroup}>
-                        <img src={passwordIcon} alt="Password" className={styles.inputIcon} />
                         <input
                             type="password"
                             name="confirmPassword"
                             value={formData.confirmPassword}
                             onChange={handleChange}
                             placeholder="Confirm Password"
-                            className={styles.inputField}
+                            className={styles.input}
                             required
                             disabled={isLoading}
                         />
+                        <MdLock className={styles.inputIcon} />
                     </div>
-
-                    {error && <div className={styles.error}>{error}</div>}
 
                     <button
                         type="submit"
-                        className={styles.registerButton}
+                        className={styles.submitButton}
                         disabled={isLoading}
                     >
-                        {isLoading ? 'Creating account...' : 'Sign Up'}
+                        {isLoading ? (
+                            <span className={styles.loading}>
+                                <span className={styles.spinner}></span>
+                                Creating account...
+                            </span>
+                        ) : (
+                            'Sign Up'
+                        )}
                     </button>
 
-                    <div className={styles.socialLogin}>
-                        <p className={styles.divider}>Or sign up with</p>
-                        <div className={styles.socialButtons}>
-                            <button type="button" className={styles.googleButton}>
-                                Google
-                            </button>
-                        </div>
+                    <div className={styles.divider}>
+                        <span>or continue with</span>
                     </div>
 
-                    <p className={styles.loginLink}>
-                        Already have an account? <Link to="/login">Log in</Link>
-                    </p>
+                    <button type="button" className={styles.googleButton}>
+                        <FaGoogle className={styles.googleIcon} />
+                        Sign up with Google
+                    </button>
+
+                    <div className={styles.loginPrompt}>
+                        Already have an account? <Link to="/login" className={styles.loginLink}>Log in</Link>
+                    </div>
                 </form>
             </div>
         </div>

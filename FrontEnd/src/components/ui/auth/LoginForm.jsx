@@ -1,10 +1,8 @@
 import React, { useState } from 'react';
 import styles from './Login.module.css';
-import emailIcon from '../../../assets/images/email.png';
-import passwordIcon from '../../../assets/images/password.png';
-import logo from "../../../assets/images/eduflex.png";
 import { Link, useNavigate } from "react-router-dom";
 import { useAuth } from '../../../hooks/Auth/userAuth';
+import { MdErrorOutline, MdEmail, MdLock, MdVisibility, MdVisibilityOff } from "react-icons/md";
 
 function Login() {
     const [email, setEmail] = useState('');
@@ -25,10 +23,7 @@ function Login() {
 
         try {
             await login({ email, password });
-            console.log("Dashboard loaded");
-            console.log("loged in ", { email, password });
             navigate('/student/Dashboard');
-            console.log("loged in 2  ", { email, password });
         } catch (err) {
             setError(err.message || 'Login failed. Please check your credentials.');
         } finally {
@@ -37,67 +32,77 @@ function Login() {
     };
 
     return (
-        <div className={styles.loginContainer}>
-            <div className={styles.glassCard}>
+        <div className={styles.container}>
+            <div className={styles.card}>
                 <div className={styles.header}>
-                    <img src={logo} alt="Company Logo" className={styles.logo} />
                     <h1 className={styles.title}>Welcome Back</h1>
                     <p className={styles.subtitle}>Please enter your credentials</p>
                 </div>
 
+                {error && (
+                    <div className={styles.error}>
+                        <MdErrorOutline size={18} />
+                        <span>{error}</span>
+                    </div>
+                )}
+
                 <form className={styles.form} onSubmit={handleLogin}>
                     <div className={styles.inputGroup}>
-                        <img src={emailIcon} alt="Email" className={styles.inputIcon} />
                         <input
                             type="email"
-                            name='email'
+                            name="email"
                             value={email}
                             onChange={(e) => setEmail(e.target.value)}
                             placeholder="Email Address"
-                            className={styles.inputField}
+                            className={styles.input}
                             required
                             disabled={isLoading}
                         />
+                        <MdEmail className={styles.inputIcon} />
                     </div>
 
                     <div className={styles.inputGroup}>
-                        <img src={passwordIcon} alt="Password" className={styles.inputIcon} />
                         <input
-                            type="password"
-                            name='password'
-                            placeholder="Password"
+                            type={"password"}
+                            name="password"
                             value={password}
                             onChange={(e) => setPassword(e.target.value)}
-                            className={styles.inputField}
+                            placeholder="Password"
+                            className={styles.input}
                             required
+                            minLength={6}
                             disabled={isLoading}
-                            minLength="6"
                         />
-                    </div>
+                        <MdLock className={styles.inputIcon} />
 
-                    <div className={styles.options}>
-                        <label className={styles.rememberMe}>
-                            <input type="checkbox" disabled={isLoading} />
-                            <span>Remember me</span>
-                        </label>
-                        <Link to="/forgot-password" className={styles.forgotPassword}>
-                            Forgot password?
-                        </Link>
+                        {/* <button
+                            type="button"
+                            className={styles.toggleButton}
+                            onClick={() => setShowPassword(!showPassword)}
+                            aria-label={showPassword ? "Hide password" : "Show password"}
+                        >
+                            {showPassword ? <MdVisibility /> : <MdVisibilityOff />}
+                        </button> */}
                     </div>
-
-                    {error && <div className={styles.error}>{error}</div>}
 
                     <button
                         type="submit"
-                        className={styles.loginButton}
+                        className={styles.submitButton}
                         disabled={isLoading}
                     >
-                        {isLoading ? 'Signing in...' : 'Sign In'}
+                        {isLoading ? (
+                            <span className={styles.loading}>
+                                <span className={styles.spinner}></span>
+                                Signing in...
+                            </span>
+                        ) : (
+                            'Sign In'
+                        )}
                     </button>
 
-                    <p className={styles.signupLink}>
-                        Don't have an account? <Link to="/register">Sign up</Link>
-                    </p>
+                    <div className={styles.signupPrompt}>
+                        Don't have an account? <Link to="/register" className={styles.signupLink}>Sign up</Link>
+                    </div>
                 </form>
             </div>
         </div>

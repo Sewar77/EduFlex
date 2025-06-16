@@ -3,7 +3,6 @@ import { useParams } from 'react-router-dom';
 import Header from '../../components/layout/Header';
 import Footer from '../../components/layout/Footer';
 import SidebarModules from '../../components/ui/Modules/SidebarModules';
-import api from '../../services/api';
 import styles from './CourseModules.module.css';
 
 function CourseModulesPage() {
@@ -16,12 +15,13 @@ function CourseModulesPage() {
     useEffect(() => {
         const fetchModules = async () => {
             try {
-                const response = await api.get(`/courses/${courseId}/modules`, {
+                const response = await fetch(`/api/courses/${courseId}/modules`, {
                     withCredentials: true,
                 });
 
-                if (Array.isArray(response.data.data)) {
-                    setModules(response.data.data);
+                const modulesData = response?.data?.data;
+                if (Array.isArray(modulesData)) {
+                    setModules(modulesData);
                 } else {
                     throw new Error('Unexpected modules format');
                 }
@@ -43,16 +43,23 @@ function CourseModulesPage() {
         <>
             <Header />
             <div className={styles.pageLayout}>
-                <SidebarModules modules={modules} onLessonSelect={handleLessonSelect} />
+                <SidebarModules
+                    modules={modules?.filter((m) => m && m.id)}
+                    onLessonSelect={handleLessonSelect}
+                />
                 <main className={styles.mainContent}>
                     {loading && <p>Loading modules...</p>}
                     {error && <p className={styles.error}>{error}</p>}
-                    {!loading && !error && !selectedLesson && <p>Please select a lesson.</p>}
+                    {!loading && !error && !selectedLesson && (
+                        <p>Please select a lesson.</p>
+                    )}
                     {selectedLesson && (
-                        <div>
+                        <div className={styles.lessonDetail}>
                             <h2>{selectedLesson.title}</h2>
-                            {/* You can expand here to show lesson content */}
-                            <p>Lesson content for: {selectedLesson.title} (id: {selectedLesson.id})</p>
+                            <p>
+                                Lesson content for: {selectedLesson.title}{' '}
+                                (ID: {selectedLesson.id})
+                            </p>
                         </div>
                     )}
                 </main>

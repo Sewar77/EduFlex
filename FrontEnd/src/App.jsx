@@ -16,7 +16,9 @@ import CourseModulesPage from './pages/Modules/CourseModulesPage.jsx';
 import { DashboardDataProvider } from './context/DashboardDataContext.jsx';
 import RecommendedCourses from './pages/Courses/Recommended.jsx';
 import MyProfile from './pages/Student/MyProfile.jsx';
-
+import SettingsPage from './pages/Settings/Settings.jsx';
+import AboutUs from './pages/Others/About.jsx';
+import ContactUs from "./pages/Others/Contact.jsx"
 function App() {
   return (
     <ErrorBoundary>
@@ -24,11 +26,14 @@ function App() {
         <BrowserRouter>
           <Routes>
             <Route path="/my-courses" element={<MyCourses />} />
+            <Route path="/about" element={<AboutUs />} />
+            <Route path="/contact" element={<ContactUs />} />
             <Route path="/course" element={<ViewCoursesPage />} />
             <Route path="/profile" element={<MyProfile />} />
             <Route path="/course/recommended" element={<RecommendedCourses />} />
             <Route path="/login" element={<Login />} />
             <Route path="/register" element={<Register />} />
+            <Route path="/settings" element={<SettingsPage />} />
             <Route
               path="/student/Dashboard"
               element={
@@ -37,7 +42,6 @@ function App() {
                 </DashboardDataProvider>
               }
             />
-            <Route path="/student/main" element={<MainStudent />} />
             <Route path="/courses/:courseId/modules" element={<CourseModulesPage />} />
             <Route path="/" element={<Home />} />
             <Route path="/course/:id" element={<CourseDetails />} />

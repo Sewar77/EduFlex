@@ -160,7 +160,7 @@ function UserProfile() {
                         {user.enrolledCourses.map((course) => (
                             <li key={course.id} className={styles.courseItem}>
                                 <img
-                                    src={course.thumbnail || "/default-course.jpg"}
+                                    src={course.thumbnail_url || "/default-course.jpg"}
                                     alt={course.title}
                                     className={styles.courseThumbnail}
                                 />

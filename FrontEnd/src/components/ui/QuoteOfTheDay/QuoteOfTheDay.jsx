@@ -57,7 +57,7 @@ const QuoteOfTheDay = () => {
                 position: 'relative',
                 overflow: 'hidden',
             }}>
-                <h2>Quote of Today: </h2>
+                <h2 style={{color:"white"}}>Quote of Today: </h2>
           <p style={{
                     fontSize: '1.15rem',
                     animation: 'floatUpDown 4s ease-in-out infinite',

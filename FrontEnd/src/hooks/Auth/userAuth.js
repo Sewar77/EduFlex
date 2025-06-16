@@ -55,7 +55,7 @@ export const useAuth = () => {
       );
     }
   };
-
+ 
   const logout = async () => {
     try {
       await api.post("/auth/logout");

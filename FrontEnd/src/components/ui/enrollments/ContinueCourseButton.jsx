@@ -18,3 +18,4 @@ function ContinueCourseButton({ courseId }) {
 }
 
 export default ContinueCourseButton;
+

@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import './Recommended.css'; // Create this for styling
-
+import card from "../../../assets/images/card1.jpg";
 function Recommended() {
     const [courses, setCourses] = useState([]);
     const [loading, setLoading] = useState(true);
@@ -8,8 +8,16 @@ function Recommended() {
     useEffect(() => {
         const fetchCourses = async () => {
             try {
-                const res = await fetch('/course/recommended', { withCredentials: true });
-                setCourses(res.data.courses || []);
+                const res = await fetch('/api/course/recommended', { credentials: 'include' });
+                const text = await res.json();
+                console.log("Raw response:", text);
+
+                if (!res.ok) {
+                    const errorText = await res.text();
+                    throw new Error(errorText);
+                }
+                setCourses(text.courses || []);
+                
             } catch (err) {
                 console.error("Failed to fetch recommended courses", err);
             } finally {
@@ -19,6 +27,7 @@ function Recommended() {
         fetchCourses();
     }, []);
 
+
     if (loading) return <p className="loading">Loading recommended courses...</p>;
 
     return (
@@ -27,10 +36,10 @@ function Recommended() {
             <div className="recommended-grid">
                 {courses.map(course => (
                     <div key={course.id} className="course-card">
-                        <img src={course.image} alt={course.title} />
+                        <img src={course.thumbnail_url || card} alt={course.title} />
                         <h3>{course.title}</h3>
                         <p>{course.description?.slice(0, 80)}...</p>
-                        <a href={`/courses/${course.id}`} className="btn-view">View Course</a>
+                        <a href={`/course/${course.id}`} className="btn-view">View Course</a>
                     </div>
                 ))}
             </div>

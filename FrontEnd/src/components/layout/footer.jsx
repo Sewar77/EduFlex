@@ -15,8 +15,7 @@ function Footer() {
                     <h3>Explore</h3>
                     <a href="/main">Home</a>
                     <a href="/courses">Courses</a>
-                    <a href="/favorites">Favorites</a>
-                    <a href="/notifications">Notifications</a>
+                    <a href="/about">About Us</a>
                 </div>
 
                 <div className={styles.menu}>

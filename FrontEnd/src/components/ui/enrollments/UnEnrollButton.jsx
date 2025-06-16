@@ -17,7 +17,7 @@ function UnenrollButton({ courseId, onUnenrollSuccess }) {
             const data = await res.json();
             if (res.ok) {
                 setMessage(data.message || "Successfully unenrolled");
-                onUnenrollSuccess?.(); // optional callback
+                onUnenrollSuccess?.(); 
             } else {
                 setMessage(data.message || "Unenrollment failed");
             }
