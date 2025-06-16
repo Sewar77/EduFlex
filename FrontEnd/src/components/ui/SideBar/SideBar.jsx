@@ -30,7 +30,7 @@ const Sidebar = () => {
             subItems: [
                 { title: 'Enrolled', path: '/my-courses' },
                 { title: 'Recommended', path: '/course/recommended' },
-                { title: 'Completed', path: '/courses/completed' },
+                { title: 'Explore', path: '/course' },
             ],
         },
         { title: 'Community', icon: <MdPeople />, path: '/community' },

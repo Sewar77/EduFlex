@@ -3,7 +3,7 @@ import style from "./header.module.css";
 import logo from "../../../src/assets/images/eduflex.png";
 import {useAuth} from "../../hooks/Auth/userAuth.js"
 import { Link } from "react-router-dom";
-import CourseSearch from "../ui/Courses/CourseSearch";
+import CourseSearch from "../ui/Courses/CourseSearch.jsx";
 
 function Header() {
     const { user } = useAuth();
@@ -20,11 +20,11 @@ function Header() {
 
                 </div>
                 <div className={style.leftHeader}>
-                    <Link to="/student/main">Home</Link>
+                    <Link to="/student/Dashboard">Home</Link>
                     <Link to="/my-courses">My Courses</Link>
                     <Link to="/course">Explore new Courses</Link>
-                    <Link to="/favorites">Favorites</Link>
-                    <Link to="/notifications">Notifications</Link>
+                    <Link to="/contact">Contact</Link>
+                    <Link to="/about">About</Link>
                     <Link to="/logout">Logout</Link>
                     <Link to="/profile">
                         <img

@@ -34,7 +34,7 @@ function SimpleTodo() {
 
     return (
         <div className={style.container}>
-            <h2 className={style.title}>📝 Your To-Do List</h2>
+            <h2 className={style.title}>📝Your To-Do List for Today</h2>
 
             <div className={style.inputGroup}>
                 <input
