@@ -1,8 +1,9 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import style from "./LandingPage.module.css";
-import CourseCards from "../../../components/ui/Courses/ViewCourses";
-import ViewCategories from "../../../components/ui/Categories/ViewCategories";
+import CourseCards from "../../../components/ui/Courses/StudentCourse/ViewCourses";
+import ViewCategories from '../../../components/ui/Categories/ViewCategories';
+
 export default function LandingPage() {
     return (
         <main className={style.landingPage}>

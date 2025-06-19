@@ -1,9 +1,9 @@
 import React from 'react';
 //import styles from './Main.module.css';
-import Header from '../../components/layout/Header';
-import Footer from '../../components/layout/Footer';
+import Footer from "../../components/layout/StudentLayout/footer";
+import Header from "../../components/layout/StudentLayout/header";
 import TextRotator from "../../components/ui/TextRotator/TextRotator";
-import CourseCards from '../../components/ui/Courses/ViewCourses';
+import CourseCards from '../../components/ui/Courses/StudentCourse/ViewCourses';
 import Sidebar from '../../components/ui/SideBar/SideBar';
 
 function MainStudent() {

@@ -1,17 +1,13 @@
-import { useCourses } from '../../../hooks/course/useCourses';
+import { useCourses } from '../../../../hooks/course/useCourses';
 import style from "./ViewCourses.module.css";
-import card from "../../../assets/images/card1.jpg";
-import ErrorBoundary from '../errors/ErrorBoundary';
+import card from "../../../../assets/images/card1.jpg";
+import ErrorBoundary from '../../errors/ErrorBoundary';
 import { useNavigate } from 'react-router-dom';
+import ViewCourseButton from './ViewCourseBtn';
 
 function CourseCards() {
     const { courses, loading, error } = useCourses();
     const navigate = useNavigate();
-
-    const handleEnroll = (courseId) => {
-        navigate(`/course/${courseId}`);
-    };
-
 
     if (loading) return <div className={style.loading}>Loading courses...</div>;
     if (error) return <div className={style.error}>Error: {error}</div>;
@@ -47,12 +43,7 @@ function CourseCards() {
                                 </p>
                             </div>
                         </div>
-                        <button
-                            className={style.enrollButton}
-                            onClick={() => handleEnroll(course.id)}
-                        >
-                            Enroll
-                        </button>
+                        <ViewCourseButton courseId={course.id} />
                     </div>
                 ))}
             </div>

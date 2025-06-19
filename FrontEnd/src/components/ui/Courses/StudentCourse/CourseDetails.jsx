@@ -1,11 +1,11 @@
 import { useParams } from "react-router-dom";
 import { useEffect, useState } from "react";
-import Header from "../../layout/Header";
-import Footer from "../../layout/Footer";
+import Footer from "../../../layout/StudentLayout/footer";
+import Header from "../../../layout/StudentLayout/header";
 import style from "./CourseDetails.module.css";
-import fallbackImage from "../../../assets/images/card1.jpg";
-import EnrollButton from "../enrollments/EnrollButton";
-import ModuleList from "../modules/ModuleList";
+import fallbackImage from "../../../../assets/images/card1.jpg";
+import EnrollButton from "../../enrollments/EnrollButton";
+import ModuleList from "../../modules/ModuleList";
 
 function CourseDetails() {
     const { id } = useParams();

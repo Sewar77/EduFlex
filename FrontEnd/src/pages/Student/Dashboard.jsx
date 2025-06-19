@@ -1,16 +1,15 @@
 import React from 'react';
 import styles from './Dashboard.module.css';
-import Header from '../../components/layout/Header';
-import Footer from '../../components/layout/footer';
+import Footer from "../../components/layout/StudentLayout/footer";
+import Header from "../../components/layout/StudentLayout/header";
 import TextRotator from '../../components/ui/TextRotator/TextRotator';
 import EnrolledCourses from '../../components/ui/enrollments/EnrolledCourse';
 import Sidebar from '../../components/ui/SideBar/SideBar';
 import { useAuth } from '../../hooks/Auth/userAuth';
 import { useDashboardData } from '../../context/useDashboardData';
-import NextLessonPreview from '../../components/ui/enrollments/NextLessonPreview';
 import QuoteOfTheDay from '../../components/ui/QuoteOfTheDay/QuoteOfTheDay';
 import SimpleTodo from '../../components/ui/SimpleTodo/SimpleTodo';
-import Categories from '../Categories/Categories';
+import ViewCategories from '../../components/ui/Categories/ViewCategories';
 
 function Dashboard() {
     const { user } = useAuth();
@@ -49,8 +48,7 @@ function Dashboard() {
                 </div>
                 <QuoteOfTheDay />
                 <EnrolledCourses />
-                <Categories />
-                <NextLessonPreview/>
+                <ViewCategories />
                 <SimpleTodo/>
             </div>
             <Footer />
