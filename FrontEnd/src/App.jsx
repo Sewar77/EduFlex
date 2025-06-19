@@ -12,13 +12,15 @@ import CourseDetails from './components/ui/Courses/CourseDetails';
 import MyCourses from './pages/Student/MyCourses';
 import Categories from './pages/Categories/Categories';
 import ViewCoursesPage from './pages/Courses/ViewCourses.jsx';
-import CourseModulesPage from './pages/Modules/CourseModulesPage.jsx';
+import CourseModulePage from './pages/Modules/CourseModulesPage.jsx';
 import { DashboardDataProvider } from './context/DashboardDataContext.jsx';
 import RecommendedCourses from './pages/Courses/Recommended.jsx';
 import MyProfile from './pages/Student/MyProfile.jsx';
 import SettingsPage from './pages/Settings/Settings.jsx';
 import AboutUs from './pages/Others/About.jsx';
 import ContactUs from "./pages/Others/Contact.jsx"
+import Lessons from './pages/Lessons/Lessons.jsx';
+
 function App() {
   return (
     <ErrorBoundary>
@@ -34,6 +36,8 @@ function App() {
             <Route path="/login" element={<Login />} />
             <Route path="/register" element={<Register />} />
             <Route path="/settings" element={<SettingsPage />} />
+            <Route path="/lessons/:lessonId" element={<Lessons />} />
+
             <Route
               path="/student/Dashboard"
               element={
@@ -42,7 +46,7 @@ function App() {
                 </DashboardDataProvider>
               }
             />
-            <Route path="/courses/:courseId/modules" element={<CourseModulesPage />} />
+            <Route path="/courses/:courseId/modules" element={<CourseModulePage />} />
             <Route path="/" element={<Home />} />
             <Route path="/course/:id" element={<CourseDetails />} />
             <Route path="/categories/:id" element={<Categories />} />
