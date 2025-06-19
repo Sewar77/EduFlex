@@ -10,6 +10,7 @@ import { useDashboardData } from '../../context/useDashboardData';
 import NextLessonPreview from '../../components/ui/enrollments/NextLessonPreview';
 import QuoteOfTheDay from '../../components/ui/QuoteOfTheDay/QuoteOfTheDay';
 import SimpleTodo from '../../components/ui/SimpleTodo/SimpleTodo';
+import Categories from '../Categories/Categories';
 
 function Dashboard() {
     const { user } = useAuth();
@@ -48,7 +49,8 @@ function Dashboard() {
                 </div>
                 <QuoteOfTheDay />
                 <EnrolledCourses />
-                <NextLessonPreview />
+                <Categories />
+                <NextLessonPreview/>
                 <SimpleTodo/>
             </div>
             <Footer />

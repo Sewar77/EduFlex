@@ -3,7 +3,6 @@ import { AuthContext } from "../../context/AuthContext";
 import api from "../../services/api";
 import { useNavigate } from "react-router-dom";
 
-
 export const useAuth = () => {
   const { user, setUser } = useContext(AuthContext);
   const navigate = useNavigate();
@@ -55,38 +54,38 @@ export const useAuth = () => {
       );
     }
   };
- 
+
   const logout = async () => {
     try {
-      await api.post("/auth/logout");
+      await api.post("/auth/logout", {}, { withCredentials: true });
+      setUser(null); // Remove user from context/state
+      navigate("/login"); // ✅ Explicitly redirect to login
+    } catch (err) {
+      console.error("Logout error", err);
       setUser(null);
       navigate("/login");
-    } catch {
-      setUser(null);
-      navigate("/login");
-      throw new Error("Failed to logout properly");
     }
   };
 
- const [loading, setLoading] = useState(true);
 
- const checkAuth = async () => {
-   try {
-     const { data } = await api.get("/auth/me");
-     if (data?.user) {
-       setUser(data.user);
-       return data.user;
-     }
-     setUser(null);
-     return null;
-   } catch {
-     setUser(null);
-     return null;
-   } finally {
-     setLoading(false);
-   }
- };
+  const [loading, setLoading] = useState(true);
 
+  const checkAuth = async () => {
+    try {
+      const { data } = await api.get("/auth/me");
+      if (data?.user) {
+        setUser(data.user);
+        return data.user;
+      }
+      setUser(null);
+      return null;
+    } catch {
+      setUser(null);
+      return null;
+    } finally {
+      setLoading(false);
+    }
+  };
 
   return {
     user,
