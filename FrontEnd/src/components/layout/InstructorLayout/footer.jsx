@@ -1,6 +1,6 @@
 import React from "react";
 import styles from "./footer.module.css";
-import logo from "../../../src/assets/images/eduflex.png";
+import logo from "../../../../src/assets/images/eduflex.png";
 
 function Footer() {
     return (

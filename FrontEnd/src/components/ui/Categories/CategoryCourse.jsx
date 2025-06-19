@@ -2,7 +2,9 @@ import { useParams } from "react-router-dom";
 import { useEffect, useState } from "react";
 import style from "./CategoryCourses.module.css";
 import card from "../../../assets/images/card1.jpg";
-
+import ViewCourseButton from "../Courses/StudentCourse/ViewCourseBtn";
+    
+    
 function CategoryCourses() {
     const { id } = useParams();
     const [courses, setCourses] = useState([]);
@@ -49,6 +51,7 @@ function CategoryCourses() {
                         <img src={card} alt={course.title} />
                         <h3>{course.title}</h3>
                         <p>{course.description?.substring(0, 100)}...</p>
+                        <ViewCourseButton courseId={course.id} />
                     </div>
                 ))}
             </div>

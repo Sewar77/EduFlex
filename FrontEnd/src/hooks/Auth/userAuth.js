@@ -58,8 +58,8 @@ export const useAuth = () => {
   const logout = async () => {
     try {
       await api.post("/auth/logout", {}, { withCredentials: true });
-      setUser(null); // Remove user from context/state
-      navigate("/login"); // ✅ Explicitly redirect to login
+      setUser(null); 
+      navigate("/login"); 
     } catch (err) {
       console.error("Logout error", err);
       setUser(null);

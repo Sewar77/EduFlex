@@ -1,6 +1,6 @@
-import Footer from "../../components/layout/footer";
-import Header from "../../components/layout/Header";
-import ViewCourses from "../../components/ui/Courses/ViewCourses"
+import Footer from "../../components/layout/StudentLayout/footer";
+import Header from "../../components/layout/StudentLayout/header";
+import ViewCourses from "../../components/ui/Courses/StudentCourse/ViewCourses"
 
 function ViewCoursesPage() {
 

@@ -22,14 +22,29 @@ function Login() {
         setError('');
 
         try {
-            await login({ email, password });
-            navigate('/student/Dashboard');
+            const user = await login({ email, password });
+
+            switch (user.role) {
+                case 'admin':
+                    navigate('/admin/dashboard');
+                    break;
+                case 'instructor':
+                    navigate('/instructor/dashboard');
+                    break;
+                case 'student':
+                    navigate('/student/dashboard');
+                    break;
+                default:
+                    setError('Unknown role. Access denied.');
+            }
         } catch (err) {
             setError(err.message || 'Login failed. Please check your credentials.');
         } finally {
             setIsLoading(false);
         }
     };
+
+
 
     return (
         <div className={styles.container}>
