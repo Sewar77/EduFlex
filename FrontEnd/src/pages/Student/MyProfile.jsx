@@ -1,6 +1,6 @@
 import UserProfile from "../../components/ui/User/UserProfile";
-import Header from "../../components/layout/Header";
-import Footer from "../../components/layout/Footer"
+import Footer from "../../components/layout/StudentLayout/footer";
+import Header from "../../components/layout/StudentLayout/header";
 import Sidebar from "../../components/ui/SideBar/SideBar";
 
 

@@ -8,7 +8,7 @@ import './App.css';
 import AuthProvider from "./context/AuthProvider";
 import ErrorBoundary from './components/ui/errors/ErrorBoundary';
 import Home from './pages/Home/Home';
-import CourseDetails from './components/ui/Courses/CourseDetails';
+import CourseDetails from './components/ui/Courses/StudentCourse/CourseDetails.jsx';
 import MyCourses from './pages/Student/MyCourses';
 import Categories from './pages/Categories/Categories';
 import ViewCoursesPage from './pages/Courses/ViewCourses.jsx';
@@ -20,6 +20,10 @@ import SettingsPage from './pages/Settings/Settings.jsx';
 import AboutUs from './pages/Others/About.jsx';
 import ContactUs from "./pages/Others/Contact.jsx"
 import Lessons from './pages/Lessons/Lessons.jsx';
+import ViewCategories from './pages/Categories/ViewCategories.jsx';
+import InstructorDashboard from "./pages/Instructor/InstructorDashboard.jsx"
+import CourseWizard from './pages/Instructor/Cousres/NewCoursePage.jsx';
+
 
 function App() {
   return (
@@ -37,6 +41,7 @@ function App() {
             <Route path="/register" element={<Register />} />
             <Route path="/settings" element={<SettingsPage />} />
             <Route path="/lessons/:lessonId" element={<Lessons />} />
+            <Route path="/course-wizard" element={<CourseWizard />} />
 
             <Route
               path="/student/Dashboard"
@@ -47,9 +52,15 @@ function App() {
               }
             />
             <Route path="/courses/:courseId/modules" element={<CourseModulePage />} />
+            <Route path="/categories" element={<ViewCategories />} />
             <Route path="/" element={<Home />} />
             <Route path="/course/:id" element={<CourseDetails />} />
             <Route path="/categories/:id" element={<Categories />} />
+            
+            <Route path="/instructor/Dashboard" element={<InstructorDashboard />} />
+            {/* <Route path="/addcourse" element={<NewCoursePage />} /> */}
+
+            
             <Route path="*" element={<Navigate to="/" replace />} />
           </Routes>
         </BrowserRouter>

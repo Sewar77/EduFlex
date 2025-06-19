@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import './Recommended.css'; // Create this for styling
-import card from "../../../assets/images/card1.jpg";
+import card from "../../../../assets/images/card1.jpg";
 function Recommended() {
     const [courses, setCourses] = useState([]);
     const [loading, setLoading] = useState(true);

@@ -22,19 +22,23 @@ const Sidebar = () => {
     const [openSubmenu, setOpenSubmenu] = useState(null);
 
     const menuItems = [
-        { title: 'Dashboard', icon: <MdDashboard />, path: '/student/Dashboard' },
+        { title: 'Dashboard', icon: <MdDashboard />, path: '/instructor/Dashboard' },
         {
             title: 'My Courses',
             icon: <MdLibraryBooks />,
-            path: '/my-courses',
+            path: '/instructorcourses',
             subItems: [
-                { title: 'Enrolled', path: '/my-courses' },
-                { title: 'Recommended', path: '/course/recommended' },
-                { title: 'Explore', path: '/course' },
+                { title: 'My Courses', path: '/instructorcourses' },
+                { title: 'Add Course', path: '/course-wizard' },
+                { title: 'Add Module', path: '/add-module' },
+                { title: 'Add Lesson', path: '/add-lesson' },
+                { title: 'Add Quiz', path: '/add-quiz' },
+                { title: 'Add Assignment', path: '/add-assignment' },
+                { title: '', path: '/course' },
             ],
         },
         { title: 'Categories', icon: <MdPeople />, path: '/categories' },
-        { title: 'Profile', icon: <MdPerson />, path: '/profile' },
+        { title: 'Profile', icon: <MdPerson />, path: '/Instructor-profile' },
         { title: 'Settings', icon: <MdSettings />, path: '/settings' },
     ];
 
