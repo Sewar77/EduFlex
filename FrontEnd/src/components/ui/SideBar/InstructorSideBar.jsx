@@ -11,6 +11,8 @@ import {
     MdMenu,
     MdClose,
     MdPerson,
+    MdBook,
+    MdCategory,
 } from 'react-icons/md';
 import { useAuth } from '../../../hooks/Auth/userAuth';
 import styles from './Sidebar.module.css';
@@ -23,21 +25,18 @@ const Sidebar = () => {
 
     const menuItems = [
         { title: 'Dashboard', icon: <MdDashboard />, path: '/instructor/Dashboard' },
-        {
-            title: 'My Courses',
-            icon: <MdLibraryBooks />,
-            path: '/instructorcourses',
-            subItems: [
-                { title: 'My Courses', path: '/instructorcourses' },
-                { title: 'Add Course', path: '/course-wizard' },
-                { title: 'Add Module', path: '/add-module' },
-                { title: 'Add Lesson', path: '/add-lesson' },
-                { title: 'Add Quiz', path: '/add-quiz' },
-                { title: 'Add Assignment', path: '/add-assignment' },
-                { title: '', path: '/course' },
-            ],
-        },
-        { title: 'Categories', icon: <MdPeople />, path: '/categories' },
+        // {
+        //     title: 'My Courses',
+        //     icon: <MdLibraryBooks />,
+        //     path: '/instructorcourses',
+        //     subItems: [
+        //         { title: 'My Courses', path: '/instructorcourses' },
+        //         { title: '', path: '/course' },
+        //     ],
+        // },
+        { title: 'My Courses', icon: <MdLibraryBooks />, path: '/instructorcourses' },
+        { title: 'Add Course', icon: <MdBook />, path: '/course-wizard' },
+        { title: 'Categories', icon: <MdCategory />, path: '/categories-instructor' },
         { title: 'Profile', icon: <MdPerson />, path: '/Instructor-profile' },
         { title: 'Settings', icon: <MdSettings />, path: '/settings' },
     ];

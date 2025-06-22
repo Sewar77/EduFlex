@@ -52,7 +52,7 @@ function CourseSearch() {
         <div className={style.searchWrapper}>
             <input
                 type="search"
-                placeholder="🔍 Search courses by title or description..."
+                placeholder="🔍 Search courses by title..."
                 className={style.searchCours}
                 value={query}
                 onChange={handleSearch}

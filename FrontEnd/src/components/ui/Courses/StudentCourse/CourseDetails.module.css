@@ -1,216 +1,155 @@
 .container {
-  max-width: 1200px;
-  margin: 0 auto;
-  padding: 20px;
+  max-width: 1100px;
+  margin: 2rem auto;
+  padding: 0 1rem;
   font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  color: #333;
 }
 
-.status {
-  text-align: center;
-  font-size: 18px;
-  color: #1b6cdd;
-  margin: 40px 0;
-}
-
-/* Course Header Styles */
 .courseHeader {
   display: flex;
-  gap: 30px;
-  flex-wrap: wrap;
-  margin-bottom: 40px;
-  background: white;
-  padding: 30px;
-  border-radius: 8px;
-  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+  gap: 2rem;
+  background-color: #fafafa;
+  padding: 1.5rem;
+  border-radius: 10px;
+  box-shadow: 0 0 10px rgb(0 0 0 / 0.05);
+  align-items: center;
+  margin-bottom: 2rem;
 }
 
-.thumbnailContainer {
-  flex: 0 0 15rem;
+.thumbnailWrapper {
+  flex-shrink: 0;
+  width: 280px;
+  height: 160px;
+  overflow: hidden;
+  border-radius: 10px;
+  box-shadow: 0 0 8px rgb(86 36 208 / 0.15);
 }
 
 .thumbnail {
   width: 100%;
-  height: auto;
-  border-radius: 8px;
+  height: 100%;
   object-fit: cover;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease;
 }
 
-.courseMeta {
+.thumbnail:hover {
+  transform: scale(1.05);
+}
+
+.courseInfo {
   flex: 1;
 }
 
 .courseTitle {
-  font-size: 28px;
-  color: #1c1d1f;
-  margin: 0 0 15px 0;
-  font-weight: 700;
+  font-size: 2rem;
+  margin-bottom: 0.4rem;
+  color: #5624d0;
 }
 
 .courseDescription {
-  color: #6a6f73;
+  font-size: 1.1rem;
+  margin-bottom: 1.5rem;
   line-height: 1.5;
-  margin-bottom: 25px;
+  color: #555;
 }
 
 .metaGrid {
-  display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
-  gap: 20px;
-  margin-bottom: 25px;
+  display: flex;
+  gap: 2rem;
+  margin-bottom: 1.5rem;
 }
 
 .metaItem {
   display: flex;
   flex-direction: column;
-}
-
-.metaLabel {
-  font-size: 14px;
-  color: #6a6f73;
-  margin-bottom: 5px;
-}
-
-.metaValue {
-  font-size: 16px;
-  color: #1c1d1f;
   font-weight: 600;
+  color: #7a7a7a;
+}
+
+.metaItem strong {
+  color: #5624d0;
+  margin-bottom: 0.2rem;
 }
 
 .enrollButton {
-  margin-top: 20px;
+  background-color: #5624d0 !important;
+  color: #fff !important;
+  padding: 0.7rem 1.5rem;
+  border-radius: 6px;
+  font-weight: 700;
+  cursor: pointer;
+  transition: background-color 0.25s ease;
 }
 
-/* Course Content Styles */
+.enrollButton:hover {
+  background-color: #421a9b !important;
+}
+
 .courseContent {
-  background: white;
-  border-radius: 8px;
-  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+  background: #fff;
+  padding: 1.5rem;
+  border-radius: 10px;
+  box-shadow: 0 0 10px rgb(0 0 0 / 0.05);
 }
 
 .contentHeader {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  margin-bottom: 25px;
-  padding-bottom: 15px;
-  border-bottom: 1px solid #d1d7dc;
-}
-
-.contentHeader h2 {
-  font-size: 22px;
-  color: #1c1d1f;
-  margin: 0;
+  margin-bottom: 1rem;
+  font-weight: 700;
+  font-size: 1.25rem;
+  color: #5624d0;
 }
 
 .moduleCount {
-  color: #6a6f73;
-  font-size: 14px;
+  font-weight: 500;
+  color: #777;
 }
 
-/* Lessons Container */
 .lessonsContainer {
-  margin-top: 20px;
-  border: 1px solid #d1d7dc;
-  border-radius: 8px;
-  overflow: hidden;
+  margin-top: 1rem;
 }
 
 .lessonsTitle {
-  background-color: #f7f9fa;
-  padding: 15px 20px;
-  margin: 0;
-  font-size: 18px;
-  color: #1c1d1f;
-  border-bottom: 1px solid #d1d7dc;
+  font-weight: 600;
+  margin-bottom: 0.75rem;
+  color: #3b006d;
 }
 
 .lessonsList {
   list-style: none;
-  padding: 0;
-  margin: 0;
+  padding-left: 0;
+  border-top: 1px solid #ddd;
 }
 
 .lessonItem {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 12px 20px;
-  border-bottom: 1px solid #f0f0f0;
-  transition: background-color 0.2s ease;
-}
-
-.lessonItem:hover {
-  background-color: #f9f9f9;
-}
-
-.lessonItem:last-child {
-  border-bottom: none;
+  padding: 0.65rem 0;
+  border-bottom: 1px solid #eee;
+  cursor: default;
 }
 
 .lessonInfo {
   display: flex;
   align-items: center;
-  gap: 10px;
+  gap: 0.75rem;
+  color: #444;
+  font-weight: 500;
 }
 
-.lessonIcon {
-  display: flex;
-  align-items: center;
-  justify-content: center;
+.playIcon {
+  fill: #5624d0;
 }
 
 .lessonTitle {
-  color: #1c1d1f;
-  font-size: 15px;
+  font-size: 1rem;
 }
 
 .lessonDuration {
-  color: #6a6f73;
-  font-size: 14px;
-  min-width: 50px;
-  text-align: right;
-}
-
-/* Module List Customization */
-.moduleList {
-  display: flex;
-  flex-direction: column;
-  gap: 15px;
-}
-
-.moduleCard {
-  background-color: #ffffff;
-  border: 1px solid #d1d7dc;
-  border-radius: 8px;
-  padding: 18px;
-  cursor: pointer;
-  transition: all 0.3s ease;
-}
-
-.moduleCard:hover {
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
-  border-color: #5624d0;
-}
-
-.moduleCard h3 {
-  margin: 0 0 8px 0;
-  font-size: 16px;
-  color: #1c1d1f;
-  font-weight: 600;
-}
-
-.moduleCard p {
-  font-size: 14px;
-  color: #6a6f73;
-  margin: 0 0 12px;
-}
-
-.empty {
-  text-align: center;
-  padding: 30px;
-  color: #6a6f73;
-  font-size: 16px;
-  background: #f7f9fa;
-  border-radius: 8px;
+  color: #999;
+  font-size: 0.9rem;
 }

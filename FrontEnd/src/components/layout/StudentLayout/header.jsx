@@ -1,7 +1,7 @@
 import React from "react";
 import style from "./header.module.css";
 import logo from "../../../../src/assets/images/eduflex.png";
-import {useAuth} from "../../../hooks/Auth/userAuth.js"
+import { useAuth } from "../../../hooks/Auth/userAuth.js"
 import { Link } from "react-router-dom";
 import CourseSearch from "../../ui/Courses/StudentCourse/CourseSearch.jsx";
 
@@ -16,7 +16,7 @@ function Header() {
                         src={user?.avatar || logo}
                         alt="Eduflex Logo"
                     />
-                    <CourseSearch />  
+                    <CourseSearch />
 
                 </div>
                 <div className={style.leftHeader}>
@@ -29,7 +29,7 @@ function Header() {
                     <Link to="/logout">Logout</Link>
                     <Link to="/profile">
                         <img
-                            src="https://i.pravatar.cc/80?img=21"
+                            src={user?.avatar || "https://i.pravatar.cc/80?img=21"}
                             className={style.person}
                             alt="Profile of student"
                         />
