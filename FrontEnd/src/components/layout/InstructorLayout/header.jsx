@@ -22,12 +22,11 @@ function Header() {
                 <div className={style.leftHeader}>
                     <Link to="/instructor/Dashboard">Home</Link>
                     <Link to="/instructorcourses">My Courses</Link>
-                    <Link to="/categories">My Ctegories</Link>
                     <Link to="/contact">Contact</Link>
                     <Link to="/logout">Logout</Link>
-                    <Link to="/profile">
+                    <Link to="/Instructor-profile">
                         <img
-                            src="https://i.pravatar.cc/80?img=21"
+                            src={user?.avatar || "https://i.pravatar.cc/80?img=21"}
                             className={style.person}
                             alt="Profile of instructor"
                         />

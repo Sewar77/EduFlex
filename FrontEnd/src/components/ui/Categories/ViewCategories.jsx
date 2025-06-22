@@ -1,12 +1,14 @@
 import { useEffect, useState } from "react";
 import style from "./ViewCategories.module.css";
 import { useNavigate } from "react-router-dom";
+import { useAuth } from "../../../hooks/Auth/userAuth"; // Import your useAuth hook
 
 function ViewCategories() {
     const [categories, setCategories] = useState([]);
     const [loading, setLoading] = useState(true);
     const [error, setError] = useState("");
     const navigate = useNavigate();
+    const { user } = useAuth(); // Get user info from your auth context
 
     useEffect(() => {
         async function fetchCategories() {
@@ -27,6 +29,14 @@ function ViewCategories() {
         fetchCategories();
     }, []);
 
+    const handleCategoryClick = (categoryId) => {
+        if (user?.role === 'instructor') {
+            navigate(`/categories-instructor/${categoryId}`);
+        } else {
+            navigate(`/categories/${categoryId}`);
+        }
+    };
+
     if (loading) return <div className={style.loading}>Loading categories...</div>;
     if (error) return <div className={style.error}>Error: {error}</div>;
 
@@ -38,7 +48,7 @@ function ViewCategories() {
                     <div
                         className={style.card}
                         key={cat.id}
-                        onClick={() => navigate(`/categories/${cat.id}`)}
+                        onClick={() => handleCategoryClick(cat.id)}
                     >
                         <h3>{cat.name}</h3>
                     </div>
