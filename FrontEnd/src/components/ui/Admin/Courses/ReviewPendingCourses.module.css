@@ -1,0 +1,66 @@
+.container {
+    padding: 2rem;
+    background: #fff;
+    border-radius: 10px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+h2 {
+    margin-bottom: 1rem;
+    font-size: 1.6rem;
+}
+
+.table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+.table th,
+.table td {
+    padding: 0.75rem 1rem;
+    border-bottom: 1px solid #ddd;
+    text-align: left;
+}
+
+.approveBtn {
+    background-color: #4caf50;
+    color: white;
+    border: none;
+    padding: 0.4rem 0.8rem;
+    margin-right: 0.5rem;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+.rejectBtn {
+    background-color: #f44336;
+    color: white;
+    border: none;
+    padding: 0.4rem 0.8rem;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+.approveBtn:disabled,
+.rejectBtn:disabled {
+    opacity: 0.6;
+    cursor: not-allowed;
+}
+.tableWrapper {
+  overflow-x: auto;
+  width: 100%;
+  margin-top: 1rem;
+  -webkit-overflow-scrolling: touch; /* smooth scrolling on iOS */
+}
+
+.table {
+  min-width: 700px; /* or suitable width for your columns */
+  border-collapse: collapse;
+  width: 100%;
+}
+@media (max-width: 600px) {
+  .approveBtn, .rejectBtn {
+    padding: 0.3rem 0.6rem;
+    font-size: 0.85rem;
+  }
+}
