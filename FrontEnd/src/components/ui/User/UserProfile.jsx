@@ -187,6 +187,21 @@ function UserProfile() {
                 </form>
             </section>
 
+            {user.role === 'admin' && (
+                <section className={styles.adminSection}>
+                    <h2>Admin Dashboard</h2>
+                    <p>Welcome, Admin! Here are some quick actions:</p>
+                    <div className={styles.adminActions}>
+                        <button onClick={() => navigate('/admin/users')} className={styles.adminBtn}>
+                            Manage Users
+                        </button>
+                        <button onClick={() => navigate('/admin/courses')} className={styles.adminBtn}>
+                            Manage Courses
+                        </button>
+                    </div>
+                </section>
+            )}
+
             {user.role === 'student' && (
                 <section className={styles.coursesSection}>
                     <h2>Enrolled Courses</h2>
@@ -248,7 +263,7 @@ function UserProfile() {
                                                 className={styles.statsBtn}
                                                 onClick={() => handleViewStats(course.id)}
                                             >
-                                                View 
+                                                View
                                             </button>
                                         </div>
                                     </div>

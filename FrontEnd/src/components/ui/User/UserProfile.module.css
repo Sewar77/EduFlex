@@ -240,3 +240,38 @@ justify-content: center;
         grid-template-columns: 1fr;
     }
 }
+
+.adminSection {
+  margin: 2rem 0;
+  padding: 1.5rem;
+  border: 2px solid #1b6cdd;
+  border-radius: 10px;
+  background-color: #f0f7ff;
+}
+
+.adminSection h2 {
+  color: #1b6cdd;
+  margin-bottom: 1rem;
+}
+
+.adminActions {
+  display: flex;
+  gap: 1rem;
+  flex-wrap: wrap;
+justify-content: center;
+}
+
+.adminBtn {
+  background-color: #1b6cdd;
+  color: white;
+  border: none;
+  padding: 0.7rem 1.2rem;
+  border-radius: 6px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.adminBtn:hover {
+  background-color: #145bb5;
+}

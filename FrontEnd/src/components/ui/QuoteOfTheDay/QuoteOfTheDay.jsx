@@ -41,29 +41,49 @@ const QuoteOfTheDay = () => {
             transform: translateY(-8px);
           }
         }
-      `}
-      </style>
-      <div style={{
-        backgroundColor: '#1b6cdd',
-        padding: '2.5rem 2rem',
-        borderRadius: '12px',
-        fontStyle: 'italic',
-        color: 'white',
-        maxWidth: '420px',
-        margin: '2.5rem auto',
-        textAlign: 'center',
-        boxShadow: '4px 4px 4px 4px rgba(62, 143, 236, 0.45)',
-        animation: 'fadeInMove 1.2s ease forwards',
-        position: 'relative',
-        overflow: 'hidden',
-      }}>
-        <h2 style={{ color: "white" }}>Quote of Today: </h2>
-        <p style={{
-          color: "white",
-          fontSize: '1.15rem',
-          animation: 'floatUpDown 4s ease-in-out infinite',
-          margin: 0,
-        }}>
+        .quote-container {
+          background-color: #1b6cdd;
+          padding: 2.5rem 2rem;
+          border-radius: 12px;
+          font-style: italic;
+          color: white;
+          max-width: 420px;
+          margin: 2.5rem auto;
+          text-align: center;
+          box-shadow: 4px 4px 4px 4px rgba(62, 143, 236, 0.45);
+          animation: fadeInMove 1.2s ease forwards;
+          position: relative;
+          overflow: hidden;
+        }
+        .quote-text {
+          color:white;
+          font-size: 1.15rem;
+          animation: floatUpDown 4s ease-in-out infinite;
+          margin: 0;
+        }
+        h2 {
+          color: white;
+          margin-bottom: 1rem;
+        }
+
+        /* Responsive adjustments */
+        @media (max-width: 480px) {
+          .quote-container {
+            padding: 1.5rem 1rem;
+            max-width: 90%;
+          }
+          .quote-text {
+            font-size: 1rem;
+          }
+          h2 {
+            font-size: 1.2rem;
+          }
+        }
+      `}</style>
+
+      <div className="quote-container">
+        <h2>Quote of Today:</h2>
+        <p className="quote-text">
           💡 {todayQuote}
         </p>
       </div>
