@@ -2,21 +2,21 @@ import React from 'react';
 import { BrowserRouter, Routes, Route, Navigate } from 'react-router-dom';
 import './App.css';
 
-import ErrorBoundary from './components/ui/errors/ErrorBoundary';
+import ErrorBoundary from './components/ui/errors/ErrorBoundary.jsx';
 import ProtectedRoute from './components/ui/Routes/ProtectRoutes.jsx';
 import AuthProvider from './context/AuthProvider';
 import { DashboardDataProvider } from './context/DashboardDataContext.jsx';
 
 // Public pages
-import Home from './pages/Home/Home';
-import Login from './pages/auth/LoginPage';
-import Register from './pages/auth/RegisterPage';
+import Home from './pages/Home/Home.jsx';
+import Login from './pages/auth/LoginPage.jsx';
+import Register from './pages/auth/RegisterPage.jsx';
 import AboutUs from './pages/Others/About.jsx';
 import ContactUs from './pages/Others/Contact.jsx';
 
 // Student pages
-import Dashboard from './pages/Student/Dashboard';
-import MyCourses from './pages/Student/MyCourses';
+import Dashboard from './pages/Student/Dashboard.jsx';
+import MyCourses from './pages/Student/MyCourses.jsx';
 import MyProfile from './pages/Student/MyProfile.jsx';
 import RecommendedCourses from './pages/Courses/Recommended.jsx';
 import CourseDetails from './components/ui/Courses/StudentCourse/CourseDetails.jsx';
@@ -74,7 +74,7 @@ function App() {
             <Route path="/lessons/:lessonId" element={<ProtectedRoute><Lessons /></ProtectedRoute>} />
             <Route path="/categories" element={<ProtectedRoute><ViewsCategories /></ProtectedRoute>} />
             <Route path="/categories/:id" element={<ProtectedRoute><Categories /></ProtectedRoute>} />
-            
+
             <Route
               path="/student/Dashboard"
               element={
@@ -108,8 +108,8 @@ function App() {
             <Route path="/admin/courses" element={<AdminCoursesTablePages />} />
             <Route path="/admin-profile" element={<ProtectedRoute><AdminProfile /></ProtectedRoute>} />
 
-            
-            
+
+
             {/* Fallback */}
             <Route path="*" element={<Navigate to="/" replace />} />
 
