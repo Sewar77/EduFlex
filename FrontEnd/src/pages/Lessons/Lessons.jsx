@@ -1,8 +1,8 @@
 import React from 'react';
-import Footer from "../../components/layout/StudentLayout/footer.jsx";
-import Header from "../../components/layout/StudentLayout/header.jsx";
-import Sidebar from '../../components/ui/SideBar/SideBar.jsx';
-import LessonPage from '../../components/ui/Lessons/LessonPage.jsx';
+import Footer from "../../Components/layout/StudentLayout/footer.jsx";
+import Header from "../../Components/layout/StudentLayout/header.jsx";
+import Sidebar from '../../Components/ui/SideBar/SideBar.jsx';
+import LessonPage from '../../Components/ui/Lessons/LessonPage.jsx';
 
 function Lessons() {
     return (

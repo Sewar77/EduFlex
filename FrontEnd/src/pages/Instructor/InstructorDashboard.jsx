@@ -1,13 +1,13 @@
 import React from "react";
 import styles from "./InstructorDashboard.module.css";
-import Footer from "../../components/layout/InstructorLayout/footer.jsx";
-import Header from "../../components/layout/InstructorLayout/header.jsx";
-import Sidebar from "../../components/ui/SideBar/InstructorSideBar.jsx";
+import Footer from "../../Components/layout/InstructorLayout/footer.jsx";
+import Header from "../../Components/layout/InstructorLayout/header.jsx";
+import Sidebar from "../../Components/ui/SideBar/InstructorSideBar.jsx";
 import { useAuth } from "../../hooks/Auth/userAuth.js";
-import QuoteOfTheDay from "../../components/ui/QuoteOfTheDay/QuoteOfTheDay.jsx";
-import SimpleTodo from "../../components/ui/SimpleTodo/SimpleTodo.jsx";
-import ViewCategories from "../../components/ui/Categories/ViewCategories.jsx";
-import EnrollmentReports from "../../components/ui/Courses/InstructorCourses/AnalsysCourses/ProgressChart.jsx";
+import QuoteOfTheDay from "../../Components/ui/QuoteOfTheDay/QuoteOfTheDay.jsx";
+import SimpleTodo from "../../Components/ui/SimpleTodo/SimpleTodo.jsx";
+import ViewCategories from "../../Components/ui/Categories/ViewCategories.jsx";
+import EnrollmentReports from "../../Components/ui/Courses/InstructorCourses/AnalsysCourses/ProgressChart.jsx";
 
 const InstructorDashboard = () => {
     const { user } = useAuth();

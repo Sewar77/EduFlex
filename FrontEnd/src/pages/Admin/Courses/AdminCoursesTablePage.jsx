@@ -1,7 +1,7 @@
-import Header from "../../../components/layout/AdminLayout/header.jsx";
-import Footer from "../../../components/layout/AdminLayout/footer.jsx";
-import AdminSidebar from "../../../components/ui/SideBar/AdminSideBar.jsx";
-import AdminCoursesTable from "../../../components/ui/Admin/Courses/AdminCoursesTable.jsx";
+import Header from "../../../Components/layout/AdminLayout/header.jsx";
+import Footer from "../../../Components/layout/AdminLayout/footer.jsx";
+import AdminSidebar from "../../../Components/ui/SideBar/AdminSideBar.jsx";
+import AdminCoursesTable from "../../../Components/ui/Admin/Courses/AdminCoursesTable.jsx";
 
 
 function AdminCoursesTablePages() {

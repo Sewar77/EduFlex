@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import ModuleSelector from './ModuleSelector';
+import ModuleSelector from './ModuleSelector.jsx';
 import LessonManager from './LessonManager.jsx';
 import styles from './EditLessons.module.css';
 

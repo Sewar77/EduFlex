@@ -1,7 +1,7 @@
-import UserProfile from "../../components/ui/User/UserProfile.jsx";
-import Footer from "../../components/layout/StudentLayout/footer.jsx";
-import Header from "../../components/layout/StudentLayout/header.jsx";
-import Sidebar from "../../components/ui/SideBar/SideBar.jsx";
+import UserProfile from "../../Components/ui/User/UserProfile.jsx";
+import Footer from "../../Components/layout/StudentLayout/footer.jsx";
+import Header from "../../Components/layout/StudentLayout/header.jsx";
+import Sidebar from "../../Components/ui/SideBar/SideBar.jsx";
 
 
 function MyProfile() {

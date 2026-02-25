@@ -1,4 +1,4 @@
-import RegisterForm from "../../components/ui/Auth/RegisterForm.jsx";
+import RegisterForm from "../../Components/ui/Auth/RegisterForm.jsx";
 function Register() {
 
     return (

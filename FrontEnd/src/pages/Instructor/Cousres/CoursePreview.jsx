@@ -1,8 +1,8 @@
 import React from 'react';
-import Footer from "../../../components/layout/InstructorLayout/footer.jsx";
-import Header from "../../../components/layout/InstructorLayout/header.jsx";
-import Sidebar from '../../../components/ui/SideBar/InstructorSideBar.jsx';
-import CoursePreview from "../../../components/ui/Courses/InstructorCourses/ViewCourses/CoursePreview.jsx"
+import Footer from "../../../Components/layout/InstructorLayout/footer.jsx";
+import Header from "../../../Components/layout/InstructorLayout/header.jsx";
+import Sidebar from '../../../Components/ui/SideBar/InstructorSideBar.jsx';
+import CoursePreview from "../../../Components/ui/Courses/InstructorCourses/ViewCourses/CoursePreview.jsx"
 function CoursesPreview() {
 
     return (

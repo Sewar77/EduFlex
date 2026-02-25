@@ -2,14 +2,14 @@ import React from 'react';
 import { BrowserRouter, Routes, Route, Navigate } from 'react-router-dom';
 import './App.css';
 
-import ErrorBoundary from './components/ui/errors/ErrorBoundary.jsx';
-import ProtectedRoute from './components/ui/Routes/ProtectRoutes.jsx';
+import ErrorBoundary from './Components/ui/errors/ErrorBoundary.jsx';
+import ProtectedRoute from './Components/ui/Routes/ProtectRoutes.jsx';
 import AuthProvider from './context/AuthProvider';
 import { DashboardDataProvider } from './context/DashboardDataContext.jsx';
 
 // Public pages
 import Home from './pages/Home/Home.jsx';
-import LoginForm from "./components/ui/Auth/LoginForm.jsx"
+import LoginForm from "./Components/ui/Auth/LoginForm.jsx"
 import Register from './pages/Auth/RegisterPage.jsx';
 import AboutUs from './pages/Others/About.jsx';
 import ContactUs from './pages/Others/Contact.jsx';
@@ -19,7 +19,7 @@ import Dashboard from './pages/Student/Dashboard.jsx';
 import MyCourses from './pages/Student/MyCourses.jsx';
 import MyProfile from './pages/Student/MyProfile.jsx';
 import RecommendedCourses from './pages/Courses/Recommended.jsx';
-import CourseDetails from './components/ui/Courses/StudentCourse/CourseDetails.jsx';
+import CourseDetails from './Components/ui/Courses/StudentCourse/CourseDetails.jsx';
 import ViewCoursesPage from './pages/Courses/ViewCourses.jsx';
 import CourseModulePage from './pages/Modules/CourseModulesPage.jsx';
 import Lessons from './pages/Lessons/Lessons.jsx';

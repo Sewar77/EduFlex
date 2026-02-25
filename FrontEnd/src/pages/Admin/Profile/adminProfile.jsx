@@ -1,7 +1,7 @@
-import UserProfile from "../../../components/ui/User/UserProfile.jsx";
-import Footer from "../../../components/layout/AdminLayout/footer.jsx";
-import Header from "../../../components/layout/AdminLayout/header.jsx";
-import Sidebar from "../../../components/ui/SideBar/AdminSideBar.jsx";
+import UserProfile from "../../../Components/ui/User/UserProfile.jsx";
+import Footer from "../../../Components/layout/AdminLayout/footer.jsx";
+import Header from "../../../Components/layout/AdminLayout/header.jsx";
+import Sidebar from "../../../Components/ui/SideBar/AdminSideBar.jsx";
 
 
 function AdminProfile() {
