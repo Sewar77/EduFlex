@@ -1,5 +1,5 @@
 import React from 'react';
-import { useDashboardData } from '../../../context/useDashboardData';
+import { useDashboardData } from '../../../context/useDashboardData.jsx';
 
 function NextLessonPreview() {
     const { enrollments } = useDashboardData();

@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import styles from './EditCourseInfo.module.css';
-import { useAuth } from '../../../../../hooks/Auth/userAuth'; // adjust the path as needed
+import { useAuth } from '../../../../../hooks/Auth/userAuth.js'; // adjust the path as needed
 
 const EditCourseInfo = ({ courseId }) => {
     const { user } = useAuth(); // user object with id inside
@@ -14,7 +14,7 @@ const EditCourseInfo = ({ courseId }) => {
     const [categories, setCategories] = useState([]);
     const [message, setMessage] = useState('');
     const [loading, setLoading] = useState(false);
-    
+
     // Fetch categories from backend
     useEffect(() => {
         const fetchCategories = async () => {

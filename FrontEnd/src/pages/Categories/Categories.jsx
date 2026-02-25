@@ -1,14 +1,14 @@
-import Footer from "../../components/layout/StudentLayout/footer";
-import Header from "../../components/layout/StudentLayout/header";
-import CategoryCourses from "../../components/ui/Categories/CategoryCourse";
+import Footer from "../../components/layout/StudentLayout/footer.jsx";
+import Header from "../../components/layout/StudentLayout/header.jsx";
+import CategoryCourses from "../../components/ui/Categories/CategoryCourse.jsx";
 
 
 function Categories() {
     return (
         <>
-        <Header />
-        <CategoryCourses />
-        <Footer />
+            <Header />
+            <CategoryCourses />
+            <Footer />
         </>
     )
 

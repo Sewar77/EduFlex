@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { MdSettings } from "react-icons/md";
 import styles from "./Settings.module.css"; // Create this CSS module
-import { useAuth } from "../../../hooks/Auth/userAuth";
+import { useAuth } from "../../../hooks/Auth/userAuth.js";
 
 function Settings() {
     const [profile, setProfile] = useState({
@@ -23,7 +23,7 @@ function Settings() {
             try {
                 const data = {
                     name: user?.name || null,
-                    email: user?.email || null ,
+                    email: user?.email || null,
                     darkMode: false,
                     notifications: true,
                 };

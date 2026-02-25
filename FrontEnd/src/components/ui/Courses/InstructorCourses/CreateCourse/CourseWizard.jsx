@@ -1,13 +1,13 @@
 import React, { useState } from "react";
-import StepNavigation from "./StepNavigation";
-import CourseForm from "./CourseForm";
-import ModuleForm from "./ModuleForm";
-import LessonFormWithContent from "./LessonForm"; // merged component with lesson + content forms
+import StepNavigation from "./StepNavigation.jsx";
+import CourseForm from "./CourseForm.jsx";
+import ModuleForm from "./ModuleForm.jsx";
+import LessonFormWithContent from "./LessonForm.jsx";
 
 const steps = [
     { id: 1, title: "Course Details" },
     { id: 2, title: "Add Modules" },
-    { id: 3, title: "Add Lessons & Content" }, // Updated step title to reflect merge
+    { id: 3, title: "Add Lessons & Content" },
 ];
 
 const CourseWizard = () => {
@@ -17,7 +17,7 @@ const CourseWizard = () => {
     const [modules, setModules] = useState([]);
     const [lessons, setLessons] = useState([]);
 
-    
+
     const fetchModules = async () => {
         if (!courseId) return;
         try {

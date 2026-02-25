@@ -2,9 +2,9 @@ import { useParams } from "react-router-dom";
 import { useEffect, useState } from "react";
 import style from "./CategoryCourses.module.css";
 import card from "../../../assets/images/card1.jpg";
-import ViewCourseButton from "../Courses/StudentCourse/ViewCourseBtn";
-    
-    
+import ViewCourseButton from "../Courses/StudentCourse/ViewCourseBtn.jsx";
+
+
 function CategoryCourses() {
     const { id } = useParams();
     const [courses, setCourses] = useState([]);

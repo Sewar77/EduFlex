@@ -1,14 +1,14 @@
 import { useEffect, useState } from "react";
 import style from "./ViewCategories.module.css";
 import { useNavigate } from "react-router-dom";
-import { useAuth } from "../../../hooks/Auth/userAuth"; // Import your useAuth hook
+import { useAuth } from "../../../hooks/Auth/userAuth.js";
 
 function ViewCategories() {
     const [categories, setCategories] = useState([]);
     const [loading, setLoading] = useState(true);
     const [error, setError] = useState("");
     const navigate = useNavigate();
-    const { user } = useAuth(); // Get user info from your auth context
+    const { user } = useAuth();
 
     useEffect(() => {
         async function fetchCategories() {

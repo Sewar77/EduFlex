@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import styles from './Login.module.css';
 import { Link, useNavigate } from "react-router-dom";
-import { useAuth } from '../../../hooks/Auth/userAuth';
+import { useAuth } from '../../../hooks/Auth/userAuth.js';
 import { MdErrorOutline, MdEmail, MdLock, MdVisibility, MdVisibilityOff } from "react-icons/md";
 
 function Login() {

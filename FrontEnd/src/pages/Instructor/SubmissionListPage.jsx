@@ -1,10 +1,10 @@
 import { useState, useEffect } from 'react';
 import { useParams } from 'react-router-dom';
-import Footer from "../../components/layout/InstructorLayout/footer";
-import Header from "../../components/layout/InstructorLayout/header";
-import Sidebar from "../../components/ui/SideBar/InstructorSideBar";
+import Footer from "../../components/layout/InstructorLayout/footer.jsx";
+import Header from "../../components/layout/InstructorLayout/header.jsx";
+import Sidebar from "../../components/ui/SideBar/InstructorSideBar.jsx";
 import styles from './SubmissionListPage.module.css';
-import SubmissionList from '../../components/ui/Instrcutor/SubmissionList';  // <<<<< Add this import
+import SubmissionList from '../../components/ui/Instrcutor/SubmissionList.jsx';
 
 function SubmissionListPage() {
     const { assignmentId } = useParams();

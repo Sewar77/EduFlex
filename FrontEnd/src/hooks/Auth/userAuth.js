@@ -1,5 +1,5 @@
 import { useContext } from "react";
-import { AuthContext } from "../../context/AuthContext";
+import { AuthContext } from "../../context/AuthContext.jsx";
 import api from "../../services/api";
 import { useNavigate } from "react-router-dom";
 
@@ -22,7 +22,7 @@ export const useAuth = () => {
       throw new Error(
         error.response?.data?.message ||
           error.message ||
-          "Login failed. Please try again."
+          "Login failed. Please try again.",
       );
     }
   };
@@ -50,7 +50,7 @@ export const useAuth = () => {
       throw new Error(
         error.response?.data?.message ||
           error.message ||
-          "Registration failed. Please try again."
+          "Registration failed. Please try again.",
       );
     }
   };

@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import styles from './EditLessons.module.css';
-import QuizEditor from './QuizEditor';
-import AssignmentEditor from './AssignmentEditor';
+import QuizEditor from './QuizEditor.jsx';
+import AssignmentEditor from './AssignmentEditor.jsx';
 
 const LessonEditor = ({ lessonId, moduleId, onSave, onCancel }) => {
     const [formData, setFormData] = useState({

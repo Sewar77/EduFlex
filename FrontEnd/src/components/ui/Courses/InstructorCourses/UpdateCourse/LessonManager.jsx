@@ -1,6 +1,6 @@
 import styles from './EditLessons.module.css';
-import LessonList from './LessonList';
-import LessonEditor from './LessonEditor';
+import LessonList from './LessonList.jsx';
+import LessonEditor from './LessonEditor.jsx';
 import { useEffect, useState } from 'react';
 const LessonManager = ({ moduleId }) => {
     const [lessons, setLessons] = useState([]);

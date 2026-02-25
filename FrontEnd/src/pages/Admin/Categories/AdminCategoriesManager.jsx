@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
-import Header from "../../../components/layout/AdminLayout/header";
-import Footer from "../../../components/layout/AdminLayout/footer";
-import AdminSidebar from "../../../components/ui/SideBar/AdminSideBar";
+import Header from "../../../components/layout/AdminLayout/header.jsx";
+import Footer from "../../../components/layout/AdminLayout/footer.jsx";
+import AdminSidebar from "../../../components/ui/SideBar/AdminSideBar.jsx";
 import styles from "./AdminCategoriesManager.module.css"
 const AdminCategoriesManager = () => {
     const [categories, setCategories] = useState([]);

@@ -1,8 +1,8 @@
 import React, { useState } from 'react';
 import styles from './EditCourse.module.css';
-import EditCourseInfo from './EditCourseInfo';
-import EditModules from './EditModuleInfo';
-import EditLessons from './EditLessons';
+import EditCourseInfo from './EditCourseInfo.jsx';
+import EditModules from './EditModuleInfo.jsx';
+import EditLessons from './EditLessons.jsx';
 
 const EditCourseTabs = ({ courseId }) => {
     const [activeTab, setActiveTab] = useState('course');

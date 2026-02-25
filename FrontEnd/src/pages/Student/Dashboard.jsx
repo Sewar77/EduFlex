@@ -1,15 +1,15 @@
 import React from 'react';
 import styles from './Dashboard.module.css';
-import Footer from "../../components/layout/StudentLayout/footer";
-import Header from "../../components/layout/StudentLayout/header";
-import TextRotator from '../../components/ui/TextRotator/TextRotator';
-import EnrolledCourses from '../../components/ui/enrollments/EnrolledCourse';
-import Sidebar from '../../components/ui/SideBar/SideBar';
-import { useAuth } from '../../hooks/Auth/userAuth';
-import { useDashboardData } from '../../context/useDashboardData';
-import QuoteOfTheDay from '../../components/ui/QuoteOfTheDay/QuoteOfTheDay';
-import SimpleTodo from '../../components/ui/SimpleTodo/SimpleTodo';
-import ViewCategories from '../../components/ui/Categories/ViewCategories';
+import Footer from "../../components/layout/StudentLayout/footer.jsx";
+import Header from "../../components/layout/StudentLayout/header.jxs";
+import TextRotator from '../../components/ui/TextRotator/TextRotator.jsx';
+import EnrolledCourses from '../../components/ui/enrollments/EnrolledCourse.jsx';
+import Sidebar from '../../components/ui/SideBar/SideBar.jsx:'
+import { useAuth } from '../../hooks/Auth/userAuth.js:'
+import { useDashboardData } from '../../context/useDashboardData.jsx';
+import QuoteOfTheDay from '../../components/ui/QuoteOfTheDay/QuoteOfTheDay.jsx';
+import SimpleTodo from '../../components/ui/SimpleTodo/SimpleTodo.jsx';
+import ViewCategories from '../../components/ui/Categories/ViewCategories.jsx';
 
 function Dashboard() {
     const { user } = useAuth();
@@ -49,7 +49,7 @@ function Dashboard() {
                 <QuoteOfTheDay />
                 <EnrolledCourses />
                 <ViewCategories />
-                <SimpleTodo/>
+                <SimpleTodo />
             </div>
             <Footer />
         </>

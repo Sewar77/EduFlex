@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import styles from './ModuleItem.module.css';
-import LessonItem from '../Lessons/LessonItem';
+import LessonItem from '../Lessons/LessonItem.jsx';
 
 const ModuleItem = ({ module }) => {
     const [lessons, setLessons] = useState([]);

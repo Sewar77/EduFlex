@@ -1,7 +1,7 @@
 import { createContext, useState, useEffect } from 'react';
-import api from '../services/api'; 
+import api from '../services/api.js';
 
-export const DashboardDataContext = createContext(); 
+export const DashboardDataContext = createContext();
 
 export const DashboardDataProvider = ({ children }) => {
     const [enrollments, setEnrollments] = useState([]);

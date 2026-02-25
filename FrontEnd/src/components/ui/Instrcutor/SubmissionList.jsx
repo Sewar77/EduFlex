@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import styles from './SubmissionList.module.css';
-import StatusBadge from './StatusBadge';
-import GradeIndicator from './GradeIndicator';
+import StatusBadge from './StatusBadge.jsx';
+import GradeIndicator from './GradeIndicator.jsx';
 
 // Utility function to check lateness
 const isLate = (submittedAt, dueDate) => {

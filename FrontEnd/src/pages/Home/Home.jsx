@@ -1,8 +1,8 @@
 import React from "react";
 // import style from "./Home.module.css"
-import Footer from "./HomeLayout/HomeFooter";
-import LandingPage from "./HomeLayout/LandingPage";
-import Header from "./HomeLayout/HomeHeader";
+import Footer from "./HomeLayout/HomeFooter.jsx";
+import LandingPage from "./HomeLayout/LandingPage.jsx";
+import Header from "./HomeLayout/HomeHeader.jsx";
 
 function Home() {
 

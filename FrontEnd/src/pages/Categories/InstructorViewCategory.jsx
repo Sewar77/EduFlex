@@ -1,6 +1,6 @@
-import Footer from "../../components/layout/InstructorLayout/footer";
-import Header from "../../components/layout/InstructorLayout/header";
-import ViewCategories from "../../components/ui/Categories/ViewCategories"; 
+import Footer from "../../components/layout/InstructorLayout/footer.jsx";
+import Header from "../../components/layout/InstructorLayout/header.jsx";
+import ViewCategories from "../../components/ui/Categories/ViewCategories.jsx";
 
 function InstructorViewCategories() {
     return (

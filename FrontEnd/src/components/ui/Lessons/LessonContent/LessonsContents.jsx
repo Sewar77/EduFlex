@@ -1,10 +1,10 @@
 // components/LessonContent/index.jsx
 import React from 'react';
-import VideoLesson from './VideoLesson';
-import AssignmentLesson from './AssignmentLesson';
-import TextLesson from './TextLesson';
-import AssignmentSubmission from '../AssignmentSubmission/AssignmentSubmission';
-import QuizLesson from './QiuzLesson';
+import VideoLesson from './VideoLesson.jsx';
+import AssignmentLesson from './AssignmentLesson.jsx';
+import TextLesson from './TextLesson.jsx';
+import AssignmentSubmission from '../AssignmentSubmission/AssignmentSubmission.jsx';
+import QuizLesson from './QiuzLesson.jsx';
 
 const LessonContent = ({ lesson }) => {
     switch (lesson.content_type) {

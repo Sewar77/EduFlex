@@ -1,8 +1,7 @@
-import AdminUsersTable from "../../../components/ui/Admin/Users/Viewusers";
-import Header from "../../../components/layout/AdminLayout/header";
-import Footer from "../../../components/layout/AdminLayout/footer";
-import AdminSidebar from "../../../components/ui/SideBar/AdminSideBar";
-import ViewUserProfile from "../../../components/ui/Admin/Users/UserProfile";
+import Header from "../../../components/layout/AdminLayout/header.jsx";
+import Footer from "../../../components/layout/AdminLayout/footer.jsx";
+import AdminSidebar from "../../../components/ui/SideBar/AdminSideBar.jsx";
+import ViewUserProfile from "../../../components/ui/Admin/Users/UserProfile.jsx";
 
 
 function ViewUserProfilePage() {

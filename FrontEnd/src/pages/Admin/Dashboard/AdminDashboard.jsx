@@ -1,9 +1,9 @@
-import AdminHeader from "../../../components/layout/AdminLayout/header";
-import Footer from "../../../components/layout/AdminLayout/footer"
-import AdminSidebar from "../../../components/ui/SideBar/AdminSideBar";
-import SimpleTodo from "../../../components/ui/SimpleTodo/SimpleTodo";
-import QuoteOfTheDay from "../../../components/ui/QuoteOfTheDay/QuoteOfTheDay";
-import AdminUsageReport from "../../../components/ui/Admin/Reports/AdminUsageReport";
+import AdminHeader from "../../../components/layout/AdminLayout/header.jsx";
+import Footer from "../../../components/layout/AdminLayout/footer.jsx"
+import AdminSidebar from "../../../components/ui/SideBar/AdminSideBar.jsx";
+import SimpleTodo from "../../../components/ui/SimpleTodo/SimpleTodo.jsx";
+import QuoteOfTheDay from "../../../components/ui/QuoteOfTheDay/QuoteOfTheDay.jsx";
+import AdminUsageReport from "../../../components/ui/Admin/Reports/AdminUsageReport.jsx";
 
 function AdminDashboard() {
     return (

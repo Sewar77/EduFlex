@@ -14,7 +14,7 @@ import {
     MdBook,
     MdCategory,
 } from 'react-icons/md';
-import { useAuth } from '../../../hooks/Auth/userAuth';
+import { useAuth } from '../../../hooks/Auth/userAuth.js';
 import styles from './Sidebar.module.css';
 
 const Sidebar = () => {

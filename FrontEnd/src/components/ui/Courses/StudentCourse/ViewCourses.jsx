@@ -1,9 +1,9 @@
-import { useCourses } from '../../../../hooks/course/useCourses';
+import { useCourses } from '../../../../hooks/course/useCourses.js';
 import style from "./ViewCourses.module.css";
 import card from "../../../../assets/images/card1.jpg";
-import ErrorBoundary from '../../errors/ErrorBoundary';
+import ErrorBoundary from '../../errors/ErrorBoundary.jsx';
 import { useNavigate } from 'react-router-dom';
-import ViewCourseButton from './ViewCourseBtn';
+import ViewCourseButton from './ViewCourseBtn.jsx';
 
 function CourseCards() {
     const { courses, loading, error } = useCourses();

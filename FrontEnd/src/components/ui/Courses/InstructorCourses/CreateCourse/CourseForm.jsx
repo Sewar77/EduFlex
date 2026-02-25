@@ -1,9 +1,9 @@
 import React, { useState, useEffect } from 'react';
 import styles from './CourseForm.module.css';
-import { useAuth } from '../../../../../hooks/Auth/userAuth'; // adjust the path as needed
+import { useAuth } from '../../../../../hooks/Auth/userAuth.js';
 
 const CourseForm = ({ onNext }) => {
-    const { user } = useAuth(); // user object with id inside
+    const { user } = useAuth();
     const [title, setTitle] = useState('');
     const [description, setDescription] = useState('');
     const [category, setCategory] = useState('');

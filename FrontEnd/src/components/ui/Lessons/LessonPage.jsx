@@ -1,10 +1,10 @@
 import React, { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
 import styles from './LessonPage.module.css';
-import NextLessonButton from '../../../components/ui/Lessons/LessonNavigation/NextLessonButton';
-import PreviousLessonButton from '../../../components/ui/Lessons/LessonNavigation/PrevLessonButton';
-import LessonContent from './LessonContent/LessonsContents';
-import BackToCoursesButton from '../../../components/ui/Lessons/BacktoCourse';
+import NextLessonButton from '../../../components/ui/Lessons/LessonNavigation/NextLessonButton.jsx';
+import PreviousLessonButton from '../../../components/ui/Lessons/LessonNavigation/PrevLessonButton.jsx';
+import LessonContent from './LessonContent/LessonsContents.jsx';
+import BackToCoursesButton from '../../../components/ui/Lessons/BacktoCourse.jsx';
 
 const LessonPage = () => {
     const { lessonId } = useParams();

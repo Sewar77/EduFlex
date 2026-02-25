@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import styles from './Register.module.css';
 import { Link, useNavigate } from "react-router-dom";
-import { useAuth } from '../../../hooks/Auth/userAuth';
+import { useAuth } from '../../../hooks/Auth/userAuth.js';
 import { MdErrorOutline, MdPerson, MdEmail, MdLock } from "react-icons/md";
 // import { FaGoogle } from "react-icons/fa";
 

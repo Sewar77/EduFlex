@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import InstructorCourseCard from './InstructorCourseCard';
+import InstructorCourseCard from './InstructorCourseCard.jsx';
 import styles from './InstructorCoursesGrid.module.css';
 
 const InstructorCoursesGrid = () => {

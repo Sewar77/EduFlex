@@ -1,8 +1,8 @@
 import React, { useState, useEffect, useCallback } from 'react';
 import { useNavigate } from 'react-router-dom';
 import styles from './EnrollCourse.module.css';
-import UnenrollButton from './UnEnrollButton';
-import ContinueCourseButton from './ContinueCourseButton';
+import UnenrollButton from './UnEnrollButton.jsx';
+import ContinueCourseButton from './ContinueCourseButton.jsx';
 
 function EnrolledCourses() {
     const [enrollments, setEnrollments] = useState([]);

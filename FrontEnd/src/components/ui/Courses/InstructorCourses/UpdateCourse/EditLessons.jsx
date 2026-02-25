@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import ModuleSelector from './ModuleSelector';
-import LessonManager from './LessonManager';
+import LessonManager from './LessonManager.jsx';
 import styles from './EditLessons.module.css';
 
 const EditLessons = ({ courseId }) => {

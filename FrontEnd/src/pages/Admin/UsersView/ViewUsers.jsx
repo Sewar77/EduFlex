@@ -1,7 +1,7 @@
-import AdminUsersTable from "../../../components/ui/Admin/Users/Viewusers";
-import Header from "../../../components/layout/AdminLayout/header";
-import Footer from "../../../components/layout/AdminLayout/footer";
-import AdminSidebar from "../../../components/ui/SideBar/AdminSideBar";
+import AdminUsersTable from "../../../components/ui/Admin/Users/Viewusers.jsx";
+import Header from "../../../components/layout/AdminLayout/header.jsx";
+import Footer from "../../../components/layout/AdminLayout/footer.jsx";
+import AdminSidebar from "../../../components/ui/SideBar/AdminSideBar.jsx";
 
 
 function ViewUsers() {
@@ -9,7 +9,7 @@ function ViewUsers() {
     return (<>
         <Header />
         <AdminSidebar />
-        <AdminUsersTable/>
+        <AdminUsersTable />
         <Footer />
     </>)
 }
