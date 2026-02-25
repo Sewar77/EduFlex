@@ -1,7 +1,7 @@
 import React from 'react';
 //import styles from './Main.module.css';
-import Footer from "../../Components/layout/StudentLayout/footer.jsx";
-import Header from "../../Components/layout/StudentLayout/header.jsx";
+import Footer from "../../Components/layout/StudentLayout/Footer.jsx";
+import Header from "../../Components/layout/StudentLayout/Header.jsx";
 import Sidebar from '../../Components/ui/SideBar/SideBar.jsx';
 import Contact from '../../Components/ui/Others/Contact.jsx';
 

@@ -1,7 +1,7 @@
 import { useParams } from "react-router-dom";
 import { useEffect, useState } from "react";
-import Footer from "../../../layout/StudentLayout/footer.jsx";
-import Header from "../../../layout/StudentLayout/header.jsx";
+import Footer from "../../../layout/StudentLayout/Footer.jsx";
+import Header from "../../../layout/StudentLayout/Header.jsx";
 import style from "./CourseDetails.module.css";
 import fallbackImage from "../../../../assets/images/card1.jpg";
 import EnrollButton from "../../enrollments/EnrollButton.jsx";

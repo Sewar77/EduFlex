@@ -1,6 +1,6 @@
 import React from 'react';
-import Footer from "../../Components/layout/StudentLayout/footer.jsx";
-import Header from "../../Components/layout/StudentLayout/header.jsx";
+import Footer from "../../Components/layout/StudentLayout/Footer.jsx";
+import Header from "../../Components/layout/StudentLayout/Header.jsx";
 import Sidebar from '../../Components/ui/SideBar/SideBar.jsx';
 import LessonPage from '../../Components/ui/Lessons/LessonPage.jsx';
 

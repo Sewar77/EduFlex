@@ -1,5 +1,5 @@
-import Footer from "../../Components/layout/StudentLayout/footer.jsx";
-import Header from "../../Components/layout/StudentLayout/header.jsx";
+import Footer from "../../Components/layout/StudentLayout/Footer.jsx";
+import Header from "../../Components/layout/StudentLayout/Header.jsx";
 import CategoryCourses from "../../Components/ui/Categories/CategoryCourse.jsx";
 
 
