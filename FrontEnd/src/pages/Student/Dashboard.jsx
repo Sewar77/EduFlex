@@ -4,8 +4,8 @@ import Footer from "../../Components/layout/StudentLayout/Footer.jsx";
 import Header from "../../Components/layout/StudentLayout/Header.jsx"
 import TextRotator from '../../Components/ui/TextRotator/TextRotator.jsx';
 import EnrolledCourses from '../../Components/ui/enrollments/EnrolledCourse.jsx';
-import Sidebar from '../../Components/ui/SideBar/SideBar.jsx:'
-import { useAuth } from '../../hooks/Auth/userAuth.js:'
+import Sidebar from '../../Components/ui/SideBar/SideBar.jsx'
+import { useAuth } from '../../hooks/Auth/userAuth.js'
 import { useDashboardData } from '../../context/useDashboardData.jsx';
 import QuoteOfTheDay from '../../Components/ui/QuoteOfTheDay/QuoteOfTheDay.jsx';
 import SimpleTodo from '../../Components/ui/SimpleTodo/SimpleTodo.jsx';

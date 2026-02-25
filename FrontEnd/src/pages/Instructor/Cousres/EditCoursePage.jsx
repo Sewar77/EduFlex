@@ -1,7 +1,7 @@
 import React from 'react';
 import { useParams } from 'react-router-dom';
 import EditCourseTabs from '../../../Components/ui/Courses/InstructorCourses/UpdateCourse/CourseEdittabs.jsx';
-import Header from '../../../Components/layout/InstructorLayout/header.ksx';
+import Header from '../../../Components/layout/InstructorLayout/header.jsx';
 import Footer from '../../../Components/layout/InstructorLayout/footer.jsx';
 
 const EditCoursePage = () => {
