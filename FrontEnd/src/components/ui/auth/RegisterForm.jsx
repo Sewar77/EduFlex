@@ -3,7 +3,7 @@ import styles from './Register.module.css';
 import { Link, useNavigate } from "react-router-dom";
 import { useAuth } from '../../../hooks/Auth/userAuth';
 import { MdErrorOutline, MdPerson, MdEmail, MdLock } from "react-icons/md";
-import { FaGoogle } from "react-icons/fa";
+// import { FaGoogle } from "react-icons/fa";
 
 function Register() {
     const [formData, setFormData] = useState({
@@ -152,10 +152,10 @@ function Register() {
                         <span>or continue with</span>
                     </div>
 
-                    <button type="button" className={styles.googleButton}>
+                    {/* <button type="button" className={styles.googleButton}>
                         <FaGoogle className={styles.googleIcon} />
                         Sign up with Google
-                    </button>
+                    </button> */}
 
                     <div className={styles.loginPrompt}>
                         Already have an account? <Link to="/login" className={styles.loginLink}>Log in</Link>

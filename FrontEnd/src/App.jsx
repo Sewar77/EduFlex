@@ -45,7 +45,9 @@ import ReviewPendingCoursesPages from './pages/Admin/Courses/ReviewPendingCourse
 import AdminCoursesTablePages from './pages/Admin/Courses/AdminCoursesTablePage.jsx';
 import AdminProfile from './pages/Admin/Profile/adminProfile.jsx';
 import AdminCategoriesManager from './pages/Admin/Categories/AdminCategoriesManager.jsx';
-
+import Categories from './pages/Categories/Categories.jsx';
+import ViewsCategories from './pages/Categories/ViewCategories.jsx';
+import SettingsPage from "./pages/Settings/Settings.jsx"
 function App() {
   return (
     <ErrorBoundary>
@@ -56,10 +58,12 @@ function App() {
             {/* Public Routes */}
             <Route path="/" element={<Home />} />
             <Route path="/login" element={<Login />} />
+            <Route path="/setting" element={<settings />} />
             <Route path="/register" element={<Register />} />
             <Route path="/about" element={<AboutUs />} />
             <Route path="/contact" element={<ContactUs />} />
             <Route path="/course/:id" element={<CourseDetails />} />
+            <Route path="/settings" element={<SettingsPage />} />
 
             {/* Student Routes */}
             <Route path="/my-courses" element={<ProtectedRoute><MyCourses /></ProtectedRoute>} />
@@ -68,6 +72,9 @@ function App() {
             <Route path="/course" element={<ProtectedRoute><ViewCoursesPage /></ProtectedRoute>} />
             <Route path="/courses/:courseId/modules" element={<ProtectedRoute><CourseModulePage /></ProtectedRoute>} />
             <Route path="/lessons/:lessonId" element={<ProtectedRoute><Lessons /></ProtectedRoute>} />
+            <Route path="/categories" element={<ProtectedRoute><ViewsCategories /></ProtectedRoute>} />
+            <Route path="/categories/:id" element={<ProtectedRoute><Categories /></ProtectedRoute>} />
+            
             <Route
               path="/student/Dashboard"
               element={
