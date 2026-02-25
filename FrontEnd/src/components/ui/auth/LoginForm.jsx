@@ -4,7 +4,7 @@ import { Link, useNavigate } from "react-router-dom";
 import { useAuth } from '../../../hooks/Auth/userAuth.js';
 import { MdErrorOutline, MdEmail, MdLock, MdVisibility, MdVisibilityOff } from "react-icons/md";
 
-function Login() {
+function LoginForm() {
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
     const [error, setError] = useState('');
@@ -124,4 +124,4 @@ function Login() {
     );
 }
 
-export default Login;
+export default LoginForm;
