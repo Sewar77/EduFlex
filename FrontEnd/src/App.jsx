@@ -9,7 +9,7 @@ import { DashboardDataProvider } from './context/DashboardDataContext.jsx';
 
 // Public pages
 import Home from './pages/Home/Home.jsx';
-import Login from './pages/Auth/LoginPage.jsx';
+import LoginPage from './pages/auth/LoginPage.jsx';
 import Register from './pages/Auth/RegisterPage.jsx';
 import AboutUs from './pages/Others/About.jsx';
 import ContactUs from './pages/Others/Contact.jsx';
@@ -57,8 +57,7 @@ function App() {
 
             {/* Public Routes */}
             <Route path="/" element={<Home />} />
-            <Route path="/login" element={<Login />} />
-            <Route path="/setting" element={<settings />} />
+            <Route path="/login" element={<LoginPage />} />
             <Route path="/register" element={<Register />} />
             <Route path="/about" element={<AboutUs />} />
             <Route path="/contact" element={<ContactUs />} />

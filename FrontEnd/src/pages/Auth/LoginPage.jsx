@@ -1,6 +1,6 @@
 import LoginForm from "../../components/ui/Auth/LoginForm.jsx";
 
-function Login() {
+function LoginPage() {
 
     return (
         <div >
@@ -10,4 +10,4 @@ function Login() {
 
 }
 
-export default Login;
+export default LoginPage;
