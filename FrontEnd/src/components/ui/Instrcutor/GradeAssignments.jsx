@@ -1,4 +1,4 @@
-// components/Instructor/GradeAssignments.jsx
+// Components/Instructor/GradeAssignments.jsx
 import { useState, useEffect } from 'react';
 import { useParams } from 'react-router-dom';
 import styles from './GradeAssignments.module.css';

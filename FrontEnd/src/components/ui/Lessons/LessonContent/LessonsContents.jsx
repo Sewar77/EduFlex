@@ -1,4 +1,4 @@
-// components/LessonContent/index.jsx
+// Components/LessonContent/index.jsx
 import React from 'react';
 import VideoLesson from './VideoLesson.jsx';
 import AssignmentLesson from './AssignmentLesson.jsx';

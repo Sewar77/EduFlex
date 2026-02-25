@@ -1,4 +1,4 @@
-// components/modules/ModuleList.jsx
+// Components/modules/ModuleList.jsx
 import React from 'react';
 import ModuleItem from './ModuleItem.jsx';
 import styles from './ModuleList.module.css';

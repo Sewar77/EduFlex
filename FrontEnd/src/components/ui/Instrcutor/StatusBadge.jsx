@@ -1,4 +1,4 @@
-// components/StatusBadge.jsx
+// Components/StatusBadge.jsx
 import React from 'react';
 import styles from './StatusBadge.module.css';
 

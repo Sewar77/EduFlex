@@ -1,4 +1,4 @@
-// components/LessonContent/AssignmentLesson.jsx
+// Components/LessonContent/AssignmentLesson.jsx
 import React from 'react';
 import styles from './LessonContent.module.css';
 

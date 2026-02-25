@@ -1,4 +1,4 @@
-// components/GradeIndicator.jsx
+// Components/GradeIndicator.jsx
 import React from 'react';
 import styles from './GradeIndicator.module.css';
 

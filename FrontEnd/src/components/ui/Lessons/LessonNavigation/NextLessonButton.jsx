@@ -1,4 +1,4 @@
-// src/components/LessonNavigation/NextLessonButton.js
+// src/Components/LessonNavigation/NextLessonButton.js
 import React from "react";
 import { useNavigate } from "react-router-dom";
 import styles from "./LessonNavigation.module.css";

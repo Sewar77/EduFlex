@@ -1,10 +1,10 @@
 import React from 'react';
 //import styles from './Main.module.css';
-import Footer from "../../components/layout/StudentLayout/footer.jsx";
-import Header from "../../components/layout/StudentLayout/header.jsx";
-import TextRotator from "../../components/ui/TextRotator/TextRotator.jsx";
-import CourseCards from '../../components/ui/Courses/StudentCourse/ViewCourses.jsx';
-import Sidebar from '../../components/ui/SideBar/SideBar.jsx';
+import Footer from "../../Components/layout/StudentLayout/footer.jsx";
+import Header from "../../Components/layout/StudentLayout/header.jsx";
+import TextRotator from "../../Components/ui/TextRotator/TextRotator.jsx";
+import CourseCards from '../../Components/ui/Courses/StudentCourse/ViewCourses.jsx';
+import Sidebar from '../../Components/ui/SideBar/SideBar.jsx';
 
 function MainStudent() {
     return (

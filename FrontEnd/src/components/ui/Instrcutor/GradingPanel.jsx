@@ -2,7 +2,7 @@ import React from "react";
 import styles from "./SubmissionList.module.css"
 import { useState } from "react";
 
-// components/Instructor/GradingPanel.jsx
+// Components/Instructor/GradingPanel.jsx
 const GradingPanel = ({ submission, assignment, onGradeSubmit }) => {
     const [grade, setGrade] = useState(submission.grade || '');
     const [feedback, setFeedback] = useState(submission.feedback || '');
