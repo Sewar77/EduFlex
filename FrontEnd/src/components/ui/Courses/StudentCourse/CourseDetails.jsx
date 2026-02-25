@@ -5,7 +5,7 @@ import Header from "../../../layout/StudentLayout/header.jsx";
 import style from "./CourseDetails.module.css";
 import fallbackImage from "../../../../assets/images/card1.jpg";
 import EnrollButton from "../../enrollments/EnrollButton.jsx";
-import ModuleList from "../../modules/ModuleList.jsx";
+import ModuleList from "../../Modules/ModuleList.jsx";
 
 function CourseDetails() {
   const { id } = useParams();
