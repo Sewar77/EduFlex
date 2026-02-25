@@ -19,12 +19,15 @@ api.interceptors.request.use(
 api.interceptors.response.use(
   (response) => response,
   async (error) => {
-    if (error.response?.status === 401) {
-      // Optionally attempt token refresh here before redirecting
+    if (
+      error.response?.status === 401 &&
+      window.location.pathname !== "/login"
+    ) {
       window.location.href = "/login";
     }
     return Promise.reject(error);
   }
 );
+
 
 export default api;

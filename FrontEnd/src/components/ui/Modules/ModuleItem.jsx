@@ -18,7 +18,6 @@ const ModuleItem = ({ module }) => {
 
                 const data = await response.json();
                 if (data && data.success && Array.isArray(data.data)) {
-                    // Initialize lessons with a completed flag set to false
                     const lessonsWithCompletion = data.data.map(lesson => ({
                         ...lesson,
                         completed: false,

@@ -3,7 +3,7 @@ import Header from "../../components/layout/StudentLayout/header";
 import ViewCategories from "../../components/ui/Categories/ViewCategories";
 
 
-function Categories() {
+function ViewsCategories() {
     return (
         <>
             <Header />
@@ -14,4 +14,4 @@ function Categories() {
 
 }
 
-export default Categories;
+export default ViewsCategories;

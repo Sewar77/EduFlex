@@ -83,7 +83,6 @@ const ViewUserProfile = () => {
                 Delete Account
             </button>
 
-            {user.avatar && <img src={user.avatar} alt={`${user.name}'s avatar`} />}
         </div>
     );
 };
